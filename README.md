@@ -7,7 +7,7 @@
 * ALVIANO, Angela (s3782264)
 * CIMPEAN, Alin (s3780838)
 * KERR, Grace (s3723465)
-* SURNAME, GivenName (sXXXX)
+* KOH, Su-Kuen (s3769533)
 
 ## Records
 
