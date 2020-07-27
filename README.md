@@ -6,7 +6,7 @@
 * GUIDA, William (s3707064)
 * ALVIANO, Angela (s3782264)
 * CIMPEAN, Alin (s3780838)
-* SURNAME, GivenName (sXXXX)
+* KERR, Grace (s3723465)
 * SURNAME, GivenName (sXXXX)
 
 ## Records
