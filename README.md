@@ -5,7 +5,7 @@
 ## Members
 * GUIDA, William (s3707064)
 * ALVIANO, Angela (s3782264)
-* SURNAME, GivenName (sXXXX)
+* CIMPEAN, Alin (s3780838)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 
