@@ -5,6 +5,9 @@ import org.springframework.stereotype.Service;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.repositories.UserRepository;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -20,5 +23,15 @@ public class UserService {
         }
 
         return userRepository.save(user);
+    }
+
+    public User getUserByName(String name) {
+        return userRepository.findByName(name);
+    }
+
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<User>();
+        userRepository.findAll().forEach(users::add);
+        return users;
     }
 }

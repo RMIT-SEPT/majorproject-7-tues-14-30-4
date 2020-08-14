@@ -16,9 +16,6 @@ public class User {
 
     private String userType;
 
-    // Example provided by Homy also has a "PersonIdentifier"
-    // - not sure if that is also needed?
-
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date created_At;
 
