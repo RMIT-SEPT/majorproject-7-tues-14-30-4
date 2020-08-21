@@ -22,7 +22,7 @@ public class User {
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date updated_At;
 
-    public User() {
+    public User(String id, String firstName, String lastName, String password, String userType, String phone) {
     }
 
     public Long getId() {
@@ -47,14 +47,6 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
-    }
-
-    public Date getCreated_At() {
-        return created_At;
-    }
-
-    public void setCreated_At(Date created_At) {
-        this.created_At = created_At;
     }
 
     public Date getUpdated_At() {
