@@ -11,4 +11,6 @@ public interface AdminRepository extends CrudRepository<Admin, Long> {
     Iterable<Admin> findAllById(Iterable<Long> iterable);
 
     public Admin findByName(String name);
+
+    public Admin findByID(String id);
 }

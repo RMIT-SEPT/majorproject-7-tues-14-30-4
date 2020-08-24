@@ -2,6 +2,7 @@ package rmit.sept.group4tues1430.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.Mapping;
 import rmit.sept.group4tues1430.model.Admin;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.repositories.AdminRepository;
@@ -24,6 +25,9 @@ public class AdminService {
         return adminRepository.findByName(name);
     }
 
+    public Admin findByID(String id) {
+        return adminRepository.findByID(id);
+    }
 
     public List<Admin> getAllAdmins() {
         List<Admin> admins = new ArrayList<Admin>();
@@ -35,9 +39,11 @@ public class AdminService {
         return adminRepository.findAll();
     }
 
-    public void deleteAdminByName(String name){
-        Admin admin = adminRepository.findByName(name);
+    public void deleteAdminById(String id){
+        Admin admin = adminRepository.findByID(id);
 
         adminRepository.delete(admin);
     }
+
+
 }
