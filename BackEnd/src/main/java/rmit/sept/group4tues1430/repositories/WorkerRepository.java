@@ -5,7 +5,7 @@ import org.springframework.stereotype.Repository;
 import rmit.sept.group4tues1430.model.Worker;
 
 @Repository
-public interface WorkerRepository extends CrudRepository<Service, Long> {
+public interface WorkerRepository extends CrudRepository<Worker, Long> {
 
     @Override
     Iterable<Worker> findAllById(Iterable<Long> iterable);

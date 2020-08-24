@@ -9,7 +9,7 @@ import java.util.List;
 
 
 @Entity
-public class Service {
+public class BusinessService {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,11 +20,11 @@ public class Service {
 
     //private List<Worker> serviceWorkers; //this doesn't work?
 
-    public Service() {
+    public BusinessService() {
 
     }
 
-    public Service(String name, Long id) {
+    public BusinessService(String name, Long id) {
         this.name = name;
         this.id = id;
         //serviceWorkers = new ArrayList<Worker>();
