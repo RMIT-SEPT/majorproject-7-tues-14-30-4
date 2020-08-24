@@ -96,7 +96,7 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
-
+                <br/>
                 <input type="submit" className="Form Submit" />
             </form>
         )

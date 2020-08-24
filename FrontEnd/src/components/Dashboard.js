@@ -6,10 +6,11 @@ import AddUser from './User/AddUser'
 class Dashboard extends Component {
     render() {
         return (
-        <div className="container">
-            <h1>Hello!!!!</h1>
-            <AddUser />
-        </div>
+            <div>
+                <div className = "formBox">
+                    <AddUser />
+                </div>
+            </div>
         )
     }
 }

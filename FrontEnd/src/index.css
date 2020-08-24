@@ -3,31 +3,77 @@ body {
     margin: 0px;
     width: 100%;
     margin-bottom: 50px;
-    height: 100%;
+
+    display:flex;
+    flex-direction:column
   }
 
 html {
   height: 100%;
 }
-  
-.header
+
+.title
 {
-  border: 2px solid blue;
-  padding: 20px;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+}
+
+.container
+{
+  width: 100%;
+  display: flex;
+  vertical-align: middle;
+}
+  
+.navBar
+{
+  border-top: 2px solid rgb(30, 30, 30);
+  /* border: 2px solid blue; */
+  padding: 10px;
   margin: 0px;
   text-align: center;
+  display: flex;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  vertical-align: middle;
+}
+
+.navBox
+{
+  width: 100%;
+  display: inline-block;
+  justify-content: space-around;
+  /* border: 2px solid green; */
+  vertical-align: middle;
+
+}
+
+.navText
+{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 2px solid purple; */
+}
+.navText:hover 
+{
+  color: rgb(124, 124, 124);
 }
 
 .footer
 {
-  border: 2px solid blue;
-  position: fixed;
-  bottom: 0px;
-  left: 0px;
-  right: 0px;
-  margin-bottom: 0px;
+  border-top: 2px solid rgb(30, 30, 30);
+  background-color: rgb(58, 58, 58);
   text-align: center;
   padding: 20px;
+  flex: 0 0 50px;
+  margin-top: auto;
+  color: white;
+
 }
 
 .column
@@ -44,5 +90,17 @@ html {
 .Body
 {
   height: 100%;
+  text-align: center;
+}
+
+.formBox
+{
+  border: 2px solid rgb(30, 30, 30);
+  width: 80%;
+  /* display: inline-block; */
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
   text-align: center;
 }
