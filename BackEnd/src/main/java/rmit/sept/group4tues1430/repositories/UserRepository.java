@@ -11,4 +11,9 @@ public interface UserRepository extends CrudRepository<User, Long> {
     Iterable<User> findAllById(Iterable<Long> iterable);
 
     public User findByName(String name);
+
+    public User findByID(String id);
+
+    public User findByType(string userType);
+
 }

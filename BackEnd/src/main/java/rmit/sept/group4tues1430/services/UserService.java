@@ -29,9 +29,25 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
+    public User getUserByID(String id) {return userRepository.findByID(id);}
+
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
         userRepository.findAll().forEach(users::add);
         return users;
+    }
+
+    public Iterable<User> findAllPersons(){
+        return userRepository.findAll();
+    }
+
+    public void deletePersonByIdentifier(String id){
+        User user = userRepository.findByID(id);
+
+//        if(person == null){
+//            throw  new  PersonException("Cannot Person with ID '"+personId+"'. This person does not exist");
+//        }
+
+        userRepository.delete(user);
     }
 }
