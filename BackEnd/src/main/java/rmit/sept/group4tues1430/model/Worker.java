@@ -13,10 +13,14 @@ public class Worker extends User
     private String times;
     private String company_ID;
 
-    public Worker(Long id, String firstName, String lastName, String password, String userType, String phone,
+    public Worker() {
+
+    }
+
+    public Worker(String id, String firstName, String lastName, String password, String userType, String phone,
                   String days, String times, String company_ID)
     {
-        super(id, firstName, lastName, password, UserType, phone);
+        super(id, firstName, lastName, password, userType, phone);
         this.days = days;
         this.times = times;
         this.company_ID = company_ID;
@@ -45,7 +49,7 @@ public class Worker extends User
 
     public void setCompany_ID(String company_ID)
     {
-        this.company_ID;
+        this.company_ID = company_ID;
     }
 
 }

@@ -12,9 +12,13 @@ public class Customer extends User
     private String address;
 //    private String[] bookingsList;
 
+    public Customer() {
+
+    }
+
     public Customer(String id, String firstName, String lastName, String password, String userType, String phone, String address) {
         super(id, firstName, lastName, password, userType, phone);
-        this.address = address
+        this.address = address;
 
     }
 

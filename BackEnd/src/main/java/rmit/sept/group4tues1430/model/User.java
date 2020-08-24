@@ -12,6 +12,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    //@NotBlank
     private String name;
 
     private String userType;
@@ -21,6 +22,10 @@ public class User {
 
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date updated_At;
+
+    public User() {
+
+    }
 
     public User(String id, String firstName, String lastName, String password, String userType, String phone) {
     }
