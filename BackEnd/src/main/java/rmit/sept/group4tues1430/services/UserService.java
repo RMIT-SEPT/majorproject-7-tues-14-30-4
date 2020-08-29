@@ -29,7 +29,7 @@ public class UserService {
         return userRepository.findByName(name);
     }
 
-    public User getUserByID(String id) {return userRepository.findByID(id);}
+    public User getUserByID(String id) {return userRepository.findById(id);}
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
@@ -37,15 +37,15 @@ public class UserService {
         return users;
     }
 
-    public Iterable<User> findAllPersons(){
+    public Iterable<User> findAllUsers(){
         return userRepository.findAll();
     }
 
-    public void deletePersonByIdentifier(String id){
-        User user = userRepository.findByID(id);
+    public void deleteUserByIdentifier(String id){
+        User user = userRepository.findById(id);
 
-//        if(person == null){
-//            throw  new  PersonException("Cannot Person with ID '"+personId+"'. This person does not exist");
+//        if(user == null){
+//            throw  new  UserException("Cannot find User with ID '"+id+"'. This user does not exist");
 //        }
 
         userRepository.delete(user);

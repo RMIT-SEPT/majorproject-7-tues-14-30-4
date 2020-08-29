@@ -1,6 +1,7 @@
 package rmit.sept.group4tues1430.model;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import javax.validation.constraints.NotBlank;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,7 +13,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@NotBlank
+    @NotBlank
     private String name;
 
     private String userType;
@@ -22,6 +23,8 @@ public class User {
 
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date updated_At;
+
+    private String phone;
 
     public User() {
 

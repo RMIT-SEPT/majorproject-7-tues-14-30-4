@@ -2,10 +2,7 @@ package rmit.sept.group4tues1430.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.services.UserService;
 import org.springframework.http.HttpStatus;
@@ -13,19 +10,19 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/user")
 public class UserRestController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
+    @GetMapping("/all")
     public List<User> getAllUsers() {
 
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{personId}")
+    @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id)
     {
         User user = userService.getUserByID(id);
@@ -41,15 +38,13 @@ public class UserRestController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @GetMapping("/users")
-    public Iterable<User> findAllPersons()
-    {
-        return userService.findAllPersons();
+    @GetMapping("/allUsers")
+    public Iterable<User> findAllUsers() {
+        return userService.findAllUsers();
     }
 
-    @GetMapping("/{personId}")
-    public void deletePersonById(String id)
-    {
-        userService.deletePersonByIdentifier(id);
+    @DeleteMapping("/{id}")
+    public void deleteUserById(@PathVariable String id) {
+        userService.deleteUserByIdentifier(id);
     }
 }

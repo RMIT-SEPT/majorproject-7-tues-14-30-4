@@ -22,7 +22,7 @@ public class BusinessServiceService {
         return serviceRepository.findByName(name);
     }
 
-    public BusinessService getBusinessServiceByID(String id) {return serviceRepository.findByID(id);}
+    public BusinessService getBusinessServiceByID(String id) {return serviceRepository.findById(id);}
 
     public List<BusinessService> getAllBusinessServices() {
         List<BusinessService> businessServices = new ArrayList<BusinessService>();
@@ -35,7 +35,7 @@ public class BusinessServiceService {
     }
 
     public void deleteServiceByIdentifier(String id){
-        BusinessService serviceToDelete = serviceRepository.findByID(id);
+        BusinessService serviceToDelete = serviceRepository.findById(id);
 
         serviceRepository.delete(serviceToDelete);
     }

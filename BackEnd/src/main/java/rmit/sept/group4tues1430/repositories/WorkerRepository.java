@@ -12,9 +12,10 @@ public interface WorkerRepository extends CrudRepository<Worker, Long> {
 
     public Worker findByName(String name);
 
-    public Worker findByID(String id);
+    public Worker findById(String id);
 
-    public Worker findByNumber(String phone);
+
+    public Worker findByPhone(String phone);
 
 
 

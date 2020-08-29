@@ -42,7 +42,7 @@ public class UserRestControllerTest {
 
         given(service.getAllUsers()).willReturn(users);
 
-        mvc.perform(get("/api/users")
+        mvc.perform(get("/api/user/all")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
@@ -64,7 +64,7 @@ public class UserRestControllerTest {
 
         given(service.getAllUsers()).willReturn(users);
 
-        mvc.perform(get("/api/users")
+        mvc.perform(get("/api/user/all")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))

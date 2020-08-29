@@ -25,7 +25,7 @@ public class WorkerService {
     }
 
     public Worker getWorkerByID(String id) {
-        return workerRepository.findByID(id);
+        return workerRepository.findById(id);
     }
 
     public List<Worker> getAllWorkers() {
@@ -40,7 +40,7 @@ public class WorkerService {
     }
 
     public void deleteWorkerByIdentifier(String id){
-        Worker worker = workerRepository.findByID(id);
+        Worker worker = workerRepository.findById(id);
 
 //        if(person == null){
 //            throw  new  PersonException("Cannot Person with ID '"+personId+"'. This person does not exist");

@@ -3,6 +3,9 @@ package rmit.sept.group4tues1430.controllers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import rmit.sept.group4tues1430.model.Customer;
 import org.springframework.http.HttpStatus;
 import rmit.sept.group4tues1430.model.Worker;
@@ -11,47 +14,50 @@ import rmit.sept.group4tues1430.services.WorkerService;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/api/worker")
 public class WorkerController {
     @Autowired
     private WorkerService workerService;
 
-    @GetMapping("/users")
+    @GetMapping("/all")
     public List<Worker> getAllWorkers()
     {
         return workerService.getAllWorkers();
     }
 
     @GetMapping("/{name}")
-    public ResponseEntity<?> getWorkerByName(String name)
+    public ResponseEntity<?> getWorkerByName(@PathVariable String name)
     {
         Worker worker = workerService.getWorkerByName(name);
 
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    @GetMapping("/{personId}")
-    public ResponseEntity<?>  getWorkerByID(String id)
+    @GetMapping("/{id}")
+    public ResponseEntity<?>  getWorkerByID(@PathVariable String id)
     {
         Worker worker = workerService.getWorkerByID(id);
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    @GetMapping("/users")
-    public Iterable<Worker> findAllWorkers()
-    {
-        return workerService.findAllWorkers();
-    }
+    // I think we don't need this as it is similar to getAllWorkers()?
+//    @GetMapping("/allWorkers")
+//    public Iterable<Worker> findAllWorkers()
+//    {
+//        return workerService.findAllWorkers();
+//    }
 
-    @GetMapping("/{personId}")
-    public void deleteWorkerByIdentifier(String id)
-    {
-        workerService.deleteWorkerByIdentifier(id);
-    }
+//    @GetMapping("/{id}")
+//    public void deleteWorkerByIdentifier(@PathVariable String id)
+//    {
+//        workerService.deleteWorkerByIdentifier(id);
+//    }
 
-    @GetMapping("/{worker}")
-    public  ResponseEntity<?> saveOrUpdateWorker(Worker worker)
-    {
-        Worker worker1 = workerService.saveOrUpdateWorker(worker);
-        return new ResponseEntity<Worker>(worker1, HttpStatus.OK);
-    }
+//    @GetMapping("/{worker}")
+//    public  ResponseEntity<?> saveOrUpdateWorker(Worker worker)
+//    {
+//        Worker worker1 = workerService.saveOrUpdateWorker(worker);
+//        return new ResponseEntity<Worker>(worker1, HttpStatus.OK);
+//    }
 }

@@ -11,6 +11,7 @@ import java.util.List;
 
 @Service
 public class CustomerService {
+
     @Autowired
     private CustomerRepository customerRepository;
 
@@ -24,7 +25,7 @@ public class CustomerService {
     }
 
     public Customer getCustomerByID(String id) {
-        return customerRepository.findByID(id);
+        return customerRepository.findById(id);
     }
 
     public Customer getCustomerByAddress(String address) {

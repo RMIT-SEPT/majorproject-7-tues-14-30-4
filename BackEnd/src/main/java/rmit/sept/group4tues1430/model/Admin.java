@@ -8,23 +8,23 @@ import java.util.Date;
 @Entity
 public class Admin extends User
 {
-    private boolean priviledges;
+    private boolean privileges;
 
     public Admin() {
 
     }
 
     public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
-                 boolean priviledges) {
+                 boolean privileges) {
         super(id, firstName, lastName, password, userType, phone);
-        this.priviledges = priviledges;
+        this.privileges = privileges;
     }
 
-    public boolean getPriviledges() {
-        return priviledges;
+    public boolean getPrivileges() {
+        return privileges;
     }
 
-    public void  setPriviledges(boolean priviledges) {
-        this.priviledges = priviledges;
+    public void  setPrivileges(boolean privileges) {
+        this.privileges = privileges;
     }
 }

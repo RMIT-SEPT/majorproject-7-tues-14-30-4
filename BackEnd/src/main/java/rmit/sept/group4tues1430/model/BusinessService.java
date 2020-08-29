@@ -3,6 +3,7 @@ package rmit.sept.group4tues1430.model;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.util.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +16,7 @@ public class BusinessService {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    //@NotBlank(message = "Service name must not be blank")
+    @NotBlank(message = "Service name must not be blank")
     private String name;
 
     //private List<Worker> serviceWorkers; //this doesn't work?
