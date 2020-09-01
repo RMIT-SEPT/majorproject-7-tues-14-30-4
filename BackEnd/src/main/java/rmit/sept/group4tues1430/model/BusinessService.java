@@ -16,19 +16,15 @@ public class BusinessService {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank(message = "Service name must not be blank")
+    @NotBlank(message = "Business Service name must not be blank")
     private String name;
 
-    //private List<Worker> serviceWorkers; //this doesn't work?
-
     public BusinessService() {
-
     }
 
     public BusinessService(String name, Long id) {
         this.name = name;
         this.id = id;
-        //serviceWorkers = new ArrayList<Worker>();
     }
 
     public Long getId() {
@@ -47,7 +43,4 @@ public class BusinessService {
         this.name = name;
     }
 
-//    public void addWorker(Worker worker) {
-//        serviceWorkers.add(worker);
-//    }
 }

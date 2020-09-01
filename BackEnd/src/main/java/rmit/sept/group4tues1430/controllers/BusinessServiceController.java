@@ -13,40 +13,42 @@ import rmit.sept.group4tues1430.services.BusinessServiceService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/service")
+@RequestMapping("/api/businessService")
 public class BusinessServiceController {
 
     @Autowired
     private BusinessServiceService businessServiceService;
 
-//    @GetMapping("/{name}")
-//    public ResponseEntity<?> getBusinessServiceByName(@PathVariable String name)
-//    {
-//        BusinessService businessService = businessServiceService.getBusinessServiceByName(name);
-//
-//        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/{id}")
-//    public ResponseEntity<?> getBusinessServiceByID(@PathVariable String id) {
-//
-//        BusinessService businessService = businessServiceService.getBusinessServiceByID(id);
-//
-//        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
-//    }
-//
-//    @GetMapping("/all")
-//    public List<BusinessService> getAllBusinessServices()
-//    {
-//        return businessServiceService.getAllBusinessServices();
-//    }
-//
+    @GetMapping("/{name}")
+    public ResponseEntity<?> getBusinessServiceByName(@PathVariable String name)
+    {
+        BusinessService businessService = businessServiceService.getBusinessServiceByName(name);
+
+        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getBusinessServiceByID(@PathVariable String id) {
+
+        BusinessService businessService = businessServiceService.getBusinessServiceByID(id);
+
+        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public List<BusinessService> getAllBusinessServices()
+    {
+        return businessServiceService.getAllBusinessServices();
+    }
+
 //    @GetMapping("/allBusinessServices")
 //    public Iterable<BusinessService> findAllBusinessServices()
 //    {
 //        return businessServiceService.findAllBusinessServices();
 //    }
 //
+
+//    Not sure why this seems to be preventing loading?
 //    @GetMapping("/{id}")
 //    public void deleteServiceByIdentifier(@PathVariable String id)
 //    {

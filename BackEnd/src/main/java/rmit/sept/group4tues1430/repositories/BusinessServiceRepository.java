@@ -6,10 +6,10 @@ import rmit.sept.group4tues1430.model.BusinessService;
 import rmit.sept.group4tues1430.model.User;
 
 @Repository
-public interface ServiceRepository extends CrudRepository<BusinessService, Long> {
+public interface BusinessServiceRepository extends CrudRepository<BusinessService, Long> {
 
-    @Override
-    Iterable<BusinessService> findAllById(Iterable<Long> iterable);
+//    @Override
+//    Iterable<BusinessService> findAllById(Iterable<Long> iterable);
 
     public BusinessService findByName(String name);
 
