@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import javax.validation.constraints.NotBlank;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
 import java.util.Date;
 
 @Entity
@@ -13,10 +14,14 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NotBlank
+    @NotBlank(message = "Name is required")
     private String name;
 
     private String userType;
+
+    @NotBlank
+    @Column(updatable = false, unique = true)
+    private String userIdentifier;
 
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date created_At;
@@ -25,6 +30,9 @@ public class User {
     private Date updated_At;
 
     private String phone;
+
+    @NotBlank(message = "Password is required")
+    private String password;
 
     public User() {
 
@@ -55,6 +63,22 @@ public class User {
 
     public void setUserType(String userType) {
         this.userType = userType;
+    }
+
+    public String getUserIdentifier() {
+        return userIdentifier;
+    }
+
+    public void setUserIdentifier(String userIdentifier) {
+        this.userIdentifier = userIdentifier;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPassword(String password) {
+        return password;
     }
 
     public Date getUpdated_At() {

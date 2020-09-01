@@ -2,6 +2,7 @@ package rmit.sept.group4tues1430.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import rmit.sept.group4tues1430.exceptions.InvalidUserException;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.repositories.UserRepository;
 
@@ -22,14 +23,23 @@ public class UserService {
             throw new IllegalArgumentException();
         }
 
-        return userRepository.save(user);
+        try {
+            user.setUserIdentifier(user.getUserIdentifier().toUpperCase());
+            return userRepository.save(user);
+
+        } catch(Exception e) {
+            throw new InvalidUserException("The User Identifier " +
+                    user.getUserIdentifier().toUpperCase() + " already exists.");
+        }
     }
 
     public User getUserByName(String name) {
         return userRepository.findByName(name);
     }
 
-    public User getUserByID(String id) {return userRepository.findById(id);}
+    public User getUserByID(String id) {
+        return userRepository.findByUserIdentifier(id);
+    }
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
@@ -42,12 +52,14 @@ public class UserService {
     }
 
     public void deleteUserByIdentifier(String id){
-        User user = userRepository.findById(id);
+        User user = userRepository.findByUserIdentifier(id);
 
-//        if(user == null){
-//            throw  new  UserException("Cannot find User with ID '"+id+"'. This user does not exist");
-//        }
-
-        userRepository.delete(user);
+        if(user == null){
+            throw  new  InvalidUserException("Cannot find User with ID '"
+                    + id + "'. This user does not exist");
+        }
+        else {
+            userRepository.delete(user);
+        }
     }
 }

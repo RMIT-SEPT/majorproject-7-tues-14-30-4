@@ -2,6 +2,7 @@ package rmit.sept.group4tues1430.services;
 
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
+import rmit.sept.group4tues1430.exceptions.InvalidUserException;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import rmit.sept.group4tues1430.model.User;
@@ -32,6 +33,14 @@ public class UserServiceTest {
         assertThrows(IllegalArgumentException.class, () ->
                 userService.saveOrUpdateUser(user1));
     }
+
+//    @Test
+//    public void deleteUserByIdentifier_ThrowsInvalidUserException_IfUserNotPresentInSystem() {
+//        UserService userService = new UserService();
+//
+//        assertThrows(InvalidUserException.class, () ->
+//                userService.deleteUserByIdentifier("abc123"));
+//    }
     
 
 

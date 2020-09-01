@@ -10,13 +10,12 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Override
     Iterable<User> findAllById(Iterable<Long> iterable);
 
-    public User findByName(String name);
-
-    public User findById(String id);
-
-    public User findByUserType(String userType);
-
     @Override
     Iterable<User> findAll();
 
+    public User findByName(String name);
+
+    public User findByUserIdentifier(String userIdentifier);
+
+    public User findByUserType(String userType);
 }
