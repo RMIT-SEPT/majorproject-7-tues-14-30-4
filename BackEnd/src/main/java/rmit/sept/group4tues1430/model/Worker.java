@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-
 public class Worker extends User
 {
     private String days;
@@ -16,7 +15,7 @@ public class Worker extends User
     public Worker(Long id, String firstName, String lastName, String password, String userType, String phone,
                   String days, String times, String company_ID)
     {
-        super(id, firstName, lastName, password, UserType, phone);
+        super(id, firstName, lastName, password, userType, phone);
         this.days = days;
         this.times = times;
         this.company_ID = company_ID;
@@ -45,7 +44,7 @@ public class Worker extends User
 
     public void setCompany_ID(String company_ID)
     {
-        this.company_ID;
+        this.company_ID = company_ID;
     }
 
 }

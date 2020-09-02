@@ -21,6 +21,17 @@
   <component name="ChangeListManager">
     <list default="true" id="39256752-7b85-4036-a871-5f9b9ee5b5bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/Group4tues1430Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/Group4tues1430Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/controllers/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/controllers/UserRestController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/services/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,9 +39,17 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="feature/learning_integration" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1gO2nV7kJyp1t0gWYhQzcfj3GM4" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,7 +60,36 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
+  <component name="RunManager">
+    <configuration name="Sept_project" type="MavenRunConfiguration" factoryName="Maven">
+      <MavenSettings>
+        <option name="myGeneralSettings" />
+        <option name="myRunnerSettings" />
+        <option name="myRunnerParameters">
+          <MavenRunnerParameters>
+            <option name="profiles">
+              <set />
+            </option>
+            <option name="goals">
+              <list />
+            </option>
+            <option name="pomFileName" />
+            <option name="profilesMap">
+              <map />
+            </option>
+            <option name="resolveToWorkspace" value="false" />
+            <option name="workingDirPath" value="$PROJECT_DIR$/BackEnd" />
+          </MavenRunnerParameters>
+        </option>
+      </MavenSettings>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -77,13 +125,61 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="208" y="23" width="1024" height="811" key="#Project_Structure" timestamp="1599016360707">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="208" y="23" width="1024" height="811" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1599016360707" />
+    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599022705163">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1599022705163" />
     <state x="434" y="155" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597976025179">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="434" y="155" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.829@0.23.1440.829" timestamp="1597976025179" />
+    <state x="533" y="158" key="#com.intellij.ide.util.MemberChooser" timestamp="1599015671224">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="533" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1599015671224" />
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom" timestamp="1599022175267">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599022175267" />
+    <state width="1398" height="304" key="GridCell.Tab.0.center" timestamp="1599022175266">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1599022175266" />
+    <state width="1398" height="304" key="GridCell.Tab.0.left" timestamp="1599022175265">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1599022175265" />
+    <state width="1398" height="304" key="GridCell.Tab.0.right" timestamp="1599022175266">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599022175266" />
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1599022175270">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599022175270" />
+    <state width="1398" height="304" key="GridCell.Tab.1.center" timestamp="1599022175268">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.center/0.0.1440.900@0.0.1440.900" timestamp="1599022175268" />
+    <state width="1398" height="304" key="GridCell.Tab.1.left" timestamp="1599022175268">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.left/0.0.1440.900@0.0.1440.900" timestamp="1599022175268" />
+    <state width="1398" height="304" key="GridCell.Tab.1.right" timestamp="1599022175269">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state width="1398" height="304" key="GridCell.Tab.1.right/0.0.1440.900@0.0.1440.900" timestamp="1599022175269" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1597974470897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="600" height="424" key="javadoc.popup/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1597974470897" />
+    <state x="385" y="210" key="run.anything.popup" timestamp="1599016046914">
+      <screen x="0" y="0" width="1440" height="900" />
+    </state>
+    <state x="385" y="210" key="run.anything.popup/0.0.1440.900@0.0.1440.900" timestamp="1599016046914" />
   </component>
 </project>

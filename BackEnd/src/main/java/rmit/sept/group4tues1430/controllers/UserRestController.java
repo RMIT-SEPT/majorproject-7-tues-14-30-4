@@ -10,16 +10,19 @@ import rmit.sept.group4tues1430.services.UserService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/users")
 public class UserRestController {
 
     @Autowired
     private UserService userService;
 
-    @GetMapping("/users")
-    public List<User> getAllUsers() {
-
-        return userService.getAllUsers();
+    public UserRestController(UserService userService){
+        this.userService = userService;
     }
+
+    @GetMapping
+    public List<User> getAllUsers() { return userService.getAllUsers(); }
+
+    // might need to use @PostMapping() here but not sure
 
 }

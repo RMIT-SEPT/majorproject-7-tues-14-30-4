@@ -20,9 +20,7 @@ public class Service {
 
     //private List<Worker> serviceWorkers; //this doesn't work?
 
-    public Service() {
-
-    }
+    public Service() {}
 
     public Service(String name, Long id) {
         this.name = name;
