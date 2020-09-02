@@ -7,8 +7,7 @@ import rmit.sept.group4tues1430.model.User;
 @Repository
 public interface UserRepository extends CrudRepository<User, Long> {
 
+    User findByUserIdentifier(String userId);
     @Override
-    Iterable<User> findAllById(Iterable<Long> iterable);
-
-    public User findByName(String name);
+    Iterable<User> findAll();
 }

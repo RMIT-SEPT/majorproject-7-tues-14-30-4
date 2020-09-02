@@ -36,11 +36,11 @@ public class UserRestControllerTest {
     public void ifGetUser_thenStatus200AndReturnJsonArray() throws Exception {
         User user1 = new User();
         user1.setName("Test Name");
-        user1.setUserType("Admin");
+//        user1.setUserType("Admin");
 
         List<User> users = Arrays.asList(user1);
 
-        given(service.getAllUsers()).willReturn(users);
+        given(service.findAllUsers()).willReturn(users);
 
         mvc.perform(get("/api/users")
                 .contentType(MediaType.APPLICATION_JSON))
@@ -54,15 +54,15 @@ public class UserRestControllerTest {
     public void ifGetUsers_thenStatus200AndReturnJsonArrayOfAllUsers() throws Exception {
         User user1 = new User();
         user1.setName("Test Name");
-        user1.setUserType("Admin");
+//        user1.setUserType("Admin");
 
         User user2 = new User();
         user2.setName("User2");
-        user2.setUserType("Customer");
+//        user2.setUserType("Customer");
 
         List<User> users = Arrays.asList(user1, user2);
 
-        given(service.getAllUsers()).willReturn(users);
+        given(service.findAllUsers()).willReturn(users);
 
         mvc.perform(get("/api/users")
                 .contentType(MediaType.APPLICATION_JSON))

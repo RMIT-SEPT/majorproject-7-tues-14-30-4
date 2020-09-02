@@ -4,9 +4,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.repositories.UserRepository;
-
-import java.util.ArrayList;
-import java.util.List;
+import rmit.sept.group4tues1430.exceptions.UserException;
+import java.util.*;
+import java.lang.*;
 
 @Service
 public class UserService {
@@ -15,25 +15,48 @@ public class UserService {
     private UserRepository userRepository;
 
     public User saveOrUpdateUser(User user) {
-        // add business logic here
-        if (user.getName().isEmpty()) {
-            throw new IllegalArgumentException();
+//        // add business logic here
+//        if (user.getName().isEmpty()) {
+//            throw new IllegalArgumentException();
+//        }
+//        if (user.getUserType().isEmpty()) {
+//            throw new IllegalArgumentException();
+//        }
+//
+//        return userRepository.save(user);
+        try{
+            user.setId(user.getId());
+            return userRepository.save(user);
+        } catch (Exception e){
+            throw new UserException("User ID " + user.getId() + " already exists");
         }
-        if (user.getUserType().isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-
-        return userRepository.save(user);
     }
 
-    public User getUserByName(String name) {
-        return userRepository.findByName(name);
+    public User findByUserIdentifier(String userId) {
+        User user = userRepository.findByUserIdentifier(userId);
+
+        if(user == null){
+            throw new UserException("User ID " + userId + " does not exist");
+        }
+
+        return user;
     }
 
-    public List<User> getAllUsers() {
-        List<User> users = new ArrayList<User>();
-        userRepository.findAll().forEach(users::add);
-        return users;
+    public Iterable<User> findAllUsers() {
+//        List<User> users = new ArrayList<User>();
+//        userRepository.findAll().forEach(users::add);
+//        return users;
+        return userRepository.findAll();
+    }
+
+    public void deleteUserByIdentifier(String userId){
+        User user = userRepository.findByUserIdentifier(userId);
+
+        if(user == null){
+            throw new UserException("User ID " + userId + " does not exist");
+        }
+
+        userRepository.delete(user);
     }
 }
 

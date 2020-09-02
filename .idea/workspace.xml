@@ -20,18 +20,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="39256752-7b85-4036-a871-5f9b9ee5b5bc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/exceptions/CustomResponseEntityExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/exceptions/UserException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/exceptions/UserIdExceptionResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/services/MapValidationErrorService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/Group4tues1430Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/Group4tues1430Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/controllers/UserRestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/controllers/UserRestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Customer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Service.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Service.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Admin.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Customer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Service.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Worker.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Worker.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/model/Worker.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/repositories/UserRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/java/rmit/sept/group4tues1430/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FrontEnd/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/FrontEnd/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/controllers/UserRestControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/controllers/UserRestControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/repositories/UserRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/repositories/UserRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/services/UserServiceIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/services/UserServiceIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/services/UserServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/src/test/java/rmit/sept/group4tues1430/services/UserServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,29 +71,24 @@
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager">
-    <configuration name="Sept_project" type="MavenRunConfiguration" factoryName="Maven">
-      <MavenSettings>
-        <option name="myGeneralSettings" />
-        <option name="myRunnerSettings" />
-        <option name="myRunnerParameters">
-          <MavenRunnerParameters>
-            <option name="profiles">
-              <set />
-            </option>
-            <option name="goals">
-              <list />
-            </option>
-            <option name="pomFileName" />
-            <option name="profilesMap">
-              <map />
-            </option>
-            <option name="resolveToWorkspace" value="false" />
-            <option name="workingDirPath" value="$PROJECT_DIR$/BackEnd" />
-          </MavenRunnerParameters>
-        </option>
-      </MavenSettings>
-      <method v="2" />
+    <configuration name="Group4tues1430Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="rmit.sept.group4tues1430.Group4tues1430Application" />
+      <module name="majorproject-7-tues-14-30-4" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="rmit.sept.group4tues1430.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Group4tues1430Application" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
@@ -129,10 +130,10 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="208" y="23" width="1024" height="811" key="#Project_Structure/0.0.1440.900@0.0.1440.900" timestamp="1599016360707" />
-    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599022705163">
+    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599028909974">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1599022705163" />
+    <state x="31" y="74" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1440.900@0.0.1440.900" timestamp="1599028909974" />
     <state x="434" y="155" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597976025179">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
@@ -141,22 +142,22 @@
       <screen x="0" y="0" width="1440" height="900" />
     </state>
     <state x="533" y="158" key="#com.intellij.ide.util.MemberChooser/0.0.1440.900@0.0.1440.900" timestamp="1599015671224" />
-    <state width="1398" height="304" key="GridCell.Tab.0.bottom" timestamp="1599022175267">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom" timestamp="1599029380679">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599022175267" />
-    <state width="1398" height="304" key="GridCell.Tab.0.center" timestamp="1599022175266">
+    <state width="1398" height="245" key="GridCell.Tab.0.bottom/0.0.1440.900@0.0.1440.900" timestamp="1599029380679" />
+    <state width="1398" height="245" key="GridCell.Tab.0.center" timestamp="1599029380678">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1599022175266" />
-    <state width="1398" height="304" key="GridCell.Tab.0.left" timestamp="1599022175265">
+    <state width="1398" height="245" key="GridCell.Tab.0.center/0.0.1440.900@0.0.1440.900" timestamp="1599029380678" />
+    <state width="1398" height="245" key="GridCell.Tab.0.left" timestamp="1599029380677">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1599022175265" />
-    <state width="1398" height="304" key="GridCell.Tab.0.right" timestamp="1599022175266">
+    <state width="1398" height="245" key="GridCell.Tab.0.left/0.0.1440.900@0.0.1440.900" timestamp="1599029380677" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right" timestamp="1599029380679">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
-    <state width="1398" height="304" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599022175266" />
+    <state width="1398" height="245" key="GridCell.Tab.0.right/0.0.1440.900@0.0.1440.900" timestamp="1599029380679" />
     <state width="1398" height="304" key="GridCell.Tab.1.bottom" timestamp="1599022175270">
       <screen x="0" y="0" width="1440" height="900" />
     </state>
