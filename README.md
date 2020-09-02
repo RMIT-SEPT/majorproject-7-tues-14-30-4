@@ -11,7 +11,7 @@
 
 ## Records
 
-* Github repository : https://github.com/RMIT-SEPT/majorproject-7-tues-14-30-4
+* Github Repository : https://github.com/RMIT-SEPT/majorproject-7-tues-14-30-4
 * Trello Board : https://trello.com/b/mdS1PQ3c
 
 
