@@ -89,6 +89,14 @@ public class User {
         this.updated_At = updated_At;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     @PrePersist
     protected void onCreate() {
         this.created_At = new Date();
