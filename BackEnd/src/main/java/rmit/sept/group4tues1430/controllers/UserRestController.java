@@ -13,16 +13,16 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/user") // used by frontend
 public class UserRestController {
 
-    @Autowired
+    @Autowired // makes new object of particular instance
     private UserService userService;
 
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
-    @PostMapping("")
+    @PostMapping("") // used to save data
     public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {

@@ -12,7 +12,7 @@ import rmit.sept.group4tues1430.services.CustomerService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/customer")
+@RequestMapping("/api/user/customer")
 public class CustomerController {
 
     @Autowired

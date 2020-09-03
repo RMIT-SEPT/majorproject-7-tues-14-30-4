@@ -13,7 +13,7 @@ import org.springframework.http.HttpStatus;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/admin")
+@RequestMapping("/api/user/admin")
 public class AdminController {
 
     @Autowired

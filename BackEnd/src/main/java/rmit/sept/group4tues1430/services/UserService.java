@@ -11,9 +11,11 @@ import java.util.List;
 
 @Service
 public class UserService {
+
     @Autowired
     private UserRepository userRepository;
 
+    // uses the user repository to save or update a user instance
     public User saveOrUpdateUser(User user) {
         // add business logic here
         if (user.getName().isEmpty()) {

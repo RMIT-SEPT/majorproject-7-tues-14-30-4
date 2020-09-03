@@ -15,7 +15,7 @@ import rmit.sept.group4tues1430.services.WorkerService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/worker")
+@RequestMapping("/api/user/worker")
 public class WorkerController {
     @Autowired
     private WorkerService workerService;

@@ -14,6 +14,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+//    @Size(min = 3, max = 20, message = "Please enter 3 to 20 characters") // doesn't seem to work?
     @NotBlank(message = "Name is required")
     private String name;
 
@@ -29,13 +30,13 @@ public class User {
     @JsonFormat(pattern ="yyyy-mm-dd")
     private Date updated_At;
 
+    @NotBlank
     private String phone;
 
     @NotBlank(message = "Password is required")
     private String password;
 
     public User() {
-
     }
 
     public User(String id, String firstName, String lastName, String password, String userType, String phone) {
