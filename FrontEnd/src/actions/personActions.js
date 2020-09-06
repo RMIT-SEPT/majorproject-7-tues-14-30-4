@@ -1,9 +1,9 @@
 import axios from "axios";
 import { GET_ERRORS } from "./types";
 
-export default const createPerson = (person, history) => async dispatch => {
+export const createPerson = (person, history) => async dispatch => {
   try {
-    const res = await axios.post("http://localhost:8080/api/person", person);
+    const res = await axios.post("http://localhost:8080/api/person", person); // passes object to backend (use axios.get to pull from backend)
     history.push("/dashboard");
   } catch (err) {
     dispatch({

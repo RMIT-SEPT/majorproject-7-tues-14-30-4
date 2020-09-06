@@ -11,25 +11,25 @@ class AddPerson extends Component {
         start_date: "",
         end_date: ""
     }; 
-    this.onChange = this.onChange.bind(this);
+    this.onChange = this.onChange.bind(this); // allows you to change value of each field
     this.onSubmit = this.onSubmit.bind(this);
     
         }
 
     onChange(e){
-        this.setState({[e.target.name]: e.target.value});
+        this.setState({[e.target.name]: e.target.value}); // applies to all fields, not just name text field
     }
     onSubmit(e){
-        e.preventDefault();
+        e.preventDefault(); // prevents refresh after submission
         const newPerson = {
             name: this.state.name,
             personIdentifier: this.state.personIdentifier,
             desc: this.state.desc,
-            start_date:this.state.start_date,
+            start_date: this.state.start_date,
             end_date: this.state.end_date  
         }
 
-        console.log(newPerson);
+        console.log(newPerson); // debugging
     }
     render() {
         return (
@@ -37,7 +37,7 @@ class AddPerson extends Component {
             <div className="container">
                 <div className="row">
                     <div className="col-md-8 m-auto">
-                        <h5 className="display-4 text-center">Create / Edit Person form</h5>
+                        <h5 className="display-4 text-center">Create Account</h5>
                         <hr />
                         <form onSubmit={this.onSubmit}>
                             <div className="form-group">

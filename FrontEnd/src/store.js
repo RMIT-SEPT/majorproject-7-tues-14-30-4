@@ -7,6 +7,7 @@ const middleware = [thunk];
 
 let store;
 
+// stores state for chrome browser only
 if (window.navigator.userAgent.includes("Chrome")) {
   store = createStore(
     rootReducer,
