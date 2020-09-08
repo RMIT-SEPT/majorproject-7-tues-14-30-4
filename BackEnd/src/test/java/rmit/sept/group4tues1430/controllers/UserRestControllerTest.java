@@ -33,7 +33,8 @@ public class UserRestControllerTest {
     @MockBean
     private UserService service;
 
-    @MockBean MapValidationErrorService errorService;
+    @MockBean
+    MapValidationErrorService errorService;
 
     @Test
     public void ifGetUser_thenStatus200AndReturnJsonArray() throws Exception {

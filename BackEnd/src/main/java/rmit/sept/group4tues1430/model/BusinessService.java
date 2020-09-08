@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+// Represents a Service provided by the system
 @Entity
 public class BusinessService {
 

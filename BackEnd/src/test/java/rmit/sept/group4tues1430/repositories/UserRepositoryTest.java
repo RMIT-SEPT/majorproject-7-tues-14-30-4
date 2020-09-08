@@ -8,8 +8,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import rmit.sept.group4tues1430.model.User;
 
-import java.util.ArrayList;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.util.AssertionErrors.assertNull;
 
@@ -100,5 +98,6 @@ public class UserRepositoryTest {
         User userFound = userRepository.findByUserIdentifier("abc123");
         assertThat(user).isEqualTo(userFound);
     }
+
 
 }

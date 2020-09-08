@@ -7,18 +7,26 @@ import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Date;
 
+/*
+ * Represents all registered users of the system
+ * Parent class - extended by the different types of User - Customer, Admin, Worker
+ */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    // Full name
     @NotBlank(message = "Name is required")
     private String name;
 
+    // Column that indicates whether user is Customer, Admin or Worker
     private String userType;
 
+    // the username used for login - therefore, must be unique
     @NotBlank
     @Column(updatable = false, unique = true)
     private String userIdentifier;
