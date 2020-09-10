@@ -19,7 +19,7 @@ class Header extends React.Component
                                 </Link>
                             </p>
                         </div>
-                        <div className="navBox">
+                        {/*<div className="navBox">
                             <p>
                                 <Link to="/dashboard"
                                 className="navText">
@@ -27,6 +27,7 @@ class Header extends React.Component
                                 </Link>
                             </p>
                         </div>
+                        */} 
                     </div>
                 </nav>
             </div>

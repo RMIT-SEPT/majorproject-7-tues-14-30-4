@@ -4,6 +4,7 @@ import Footer from './components/Layout/Footer';
 // import LeftColumn from './components/Layout/LeftColumn';
 import Body from './components/Layout/Body';
 import Dashboard from './components/Dashboard';
+import Signin from './components/Signin/Signin'
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -17,7 +18,8 @@ function App() {
         <div>
           <Header/>
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/" component={Body} />
+          <Route exact path="/" component={Signin} />
+          <Route exact path="/signin" component={Signin} />
           <Footer/>
         </div>
       </Router>

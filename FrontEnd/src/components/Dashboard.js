@@ -7,9 +7,11 @@ class Dashboard extends Component {
     render() {
         return (
             <div>
-                <div className = "formBox">
-                    <AddUser />
-                </div>
+                {/* <div className = "formBox">
+                    <AddUser /> 
+                    
+                </div> */}
+                <p>Welcome to the User Dashboard!</p>
             </div>
         )
     }
