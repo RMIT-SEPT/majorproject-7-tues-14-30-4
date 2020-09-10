@@ -13,7 +13,7 @@ public interface AdminRepository extends CrudRepository<Admin, Long> {
 
     public Admin findByName(String name);
 
-    public Admin findById(String id);
+    public Admin findByUserIdentifier(String id);
 
     @Override
     Iterable<Admin> findAll();
