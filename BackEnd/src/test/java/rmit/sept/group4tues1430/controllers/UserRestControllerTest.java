@@ -16,6 +16,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.services.UserService;
+import rmit.sept.group4tues1430.services.MapValidationErrorService;
 
 import java.util.Arrays;
 import java.util.List;
@@ -32,6 +33,9 @@ public class UserRestControllerTest {
     @MockBean
     private UserService service;
 
+    @MockBean
+    MapValidationErrorService errorService;
+
     @Test
     public void ifGetUser_thenStatus200AndReturnJsonArray() throws Exception {
         User user1 = new User();
@@ -42,7 +46,7 @@ public class UserRestControllerTest {
 
         given(service.getAllUsers()).willReturn(users);
 
-        mvc.perform(get("/api/users")
+        mvc.perform(get("/api/user/all")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(1)))
@@ -64,7 +68,7 @@ public class UserRestControllerTest {
 
         given(service.getAllUsers()).willReturn(users);
 
-        mvc.perform(get("/api/users")
+        mvc.perform(get("/api/user/all")
                 .contentType(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(jsonPath("$", hasSize(2)))

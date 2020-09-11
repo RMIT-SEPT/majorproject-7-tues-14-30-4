@@ -6,7 +6,6 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-
 public class Worker extends User
 {
     private String days;

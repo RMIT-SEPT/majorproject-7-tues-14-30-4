@@ -8,8 +8,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import rmit.sept.group4tues1430.model.User;
 
-import java.util.ArrayList;
-
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.util.AssertionErrors.assertNull;
 
@@ -24,11 +22,13 @@ public class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    public void whenFindByName_thenReturnsUser() {
+    public void findByName_ReturnsUser_IfUserIsPresent() {
 
         User user = new User();
         user.setName("Test Name");
         user.setUserType("Admin");
+        user.setUserIdentifier("abc123");
+        user.setPassword("password");
 
         entityManager.persist(user);
         entityManager.flush();
@@ -40,10 +40,12 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void ifNotPresent_ThenFindByNameReturnsNull() {
+    public void findByName_ReturnsNull_IfUserByThatNameIsNotPresent() {
         User user = new User();
         user.setName("Test Name");
         user.setUserType("Admin");
+        user.setUserIdentifier("abc123");
+        user.setPassword("password");
 
         entityManager.persist(user);
         entityManager.flush();
@@ -53,10 +55,12 @@ public class UserRepositoryTest {
     }
 
     @Test
-    public void ifNameToSearchIsEmpty_ThenFindByNameReturnsNull() {
+    public void findByName_ReturnsNull_IfNameToSearchIsEmpty() {
         User user = new User();
         user.setName("Test Name");
         user.setUserType("Admin");
+        user.setUserIdentifier("abc123");
+        user.setPassword("password");
 
         entityManager.persist(user);
         entityManager.flush();
@@ -64,5 +68,36 @@ public class UserRepositoryTest {
         User userFound = userRepository.findByName("");
         assertNull("Not found", userFound);
     }
+
+    @Test
+    public void findByUserIdentifier_ReturnsNull_IfUserIsNotPresentInSystem() {
+        User user = new User();
+        user.setName("John Smith");
+        user.setUserType("Admin");
+        user.setUserIdentifier("abc123");
+        user.setPassword("password");
+
+        entityManager.persist(user);
+        entityManager.flush();
+
+        User userFound = userRepository.findByUserIdentifier("abc1234");
+        assertNull("Not found", userFound);
+    }
+
+    @Test
+    public void findByUserIdentifier_ReturnsCorrectUser_IfUserIsPresentInSystem() {
+        User user = new User();
+        user.setName("John Smith");
+        user.setUserType("Admin");
+        user.setUserIdentifier("abc123");
+        user.setPassword("password");
+
+        entityManager.persist(user);
+        entityManager.flush();
+
+        User userFound = userRepository.findByUserIdentifier("abc123");
+        assertThat(user).isEqualTo(userFound);
+    }
+
 
 }
