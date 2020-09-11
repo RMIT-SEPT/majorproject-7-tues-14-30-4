@@ -1,17 +1,16 @@
 import React, { Component } from 'react'
-import createUser from '../../actions/personActions'
+import {createUser, UserProfiles} from '../../actions/personActions'
 
 class AddUser extends Component {
     constructor(){
         super();
 
         this.state= {
-        id: "",
         name: "",
         password: "",
         phone: "",
         user_type: "",
-        address: "",
+        // address: "",
         userIdentifier: "",
     }; 
     this.onChange = this.onChange.bind(this);
@@ -25,35 +24,25 @@ class AddUser extends Component {
     onSubmit(e){
         e.preventDefault();
         const newUser = {
-            id: this.state.id,
             name: this.state.name,
             phone: this.state.phone,
             password: this.state.password,
             userType: this.state.userType,
-            address: this.state.address,
+            // address: this.state.address,
             userIdentifier: this.state.userIdentifier,  
         }
 
         console.log(newUser);
 
-        createUser();
+        createUser(newUser);
 
-        console.log("meh")
+        console.log(UserProfiles(newUser['userIdentifier']));
+        // UserProfiles(1);
     }
 
     render() {
         return (
             <form onSubmit={this.onSubmit}>
-                <h4>User ID</h4>
-                <div className="form">
-                    <input type="text" className="form-input" 
-                    placeholder="User ID" 
-                    name="id"
-                    value= {this.state.id}
-                    onChange = {this.onChange}
-                    />    
-                </div>
-
                 <h4>Name</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
@@ -85,7 +74,7 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
-                
+                {/*
                 <h4>Address</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
@@ -95,6 +84,7 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
+                */}
 
                 <h4>User Type</h4>
                 <div className="form">

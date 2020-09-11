@@ -1,8 +1,13 @@
 import React, { Component } from 'react'
+import axios from "axios";
 import AddUser from './User/AddUser'
+
+import {createUser, UserProfiles} from '../actions/personActions'
+ 
 // import CreatePersonButton from './Persons/CreatePersonButton';
 
 class Dashboard extends Component {
+
     render() {
         return (
             <div className="dashboard">
@@ -11,7 +16,6 @@ class Dashboard extends Component {
 
                 <p>Eventually only admins will be able to see the following</p>
                 <p className="addUserButton" onClick={hide}>Click here to add a user</p>
-
 
                 <div className="formBox" style={ { display: "none" }}>
                     <AddUser/>
