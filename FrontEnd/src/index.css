@@ -3,10 +3,16 @@ body {
     margin: 0px;
     width: 100%;
     margin-bottom: 50px;
+    height: 100%;
 
     display:flex;
     flex-direction:column
   }
+
+.overall
+{
+  height: 100%;
+}
 
 html {
   height: 100%;
@@ -102,5 +108,29 @@ html {
   margin-top: 10px;
   margin-bottom: 10px;
 
+  text-align: center;
+}
+
+.addUserButton
+{
+  padding: 10px;
+  border: 1px black solid;
+  color: white;
+  background-color: rgb(58, 58, 58);
+  /* width: 20%; */
+  text-align: center;
+  display: inline-block;
+}
+
+.addUserButton:hover 
+{
+  background-color: rgb(124, 124, 124);
+}
+
+
+.dashboard
+{
+  /* margin: 10px; */
+  /* height: 100%; */
   text-align: center;
 }

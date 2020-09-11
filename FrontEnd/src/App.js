@@ -15,7 +15,7 @@ function App() {
   return (
     <Provider store={store}>
       <Router>
-        <div>
+        <div className="overall">
           <Header/>
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/" component={Signin} />
