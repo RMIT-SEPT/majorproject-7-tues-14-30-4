@@ -1,4 +1,4 @@
-# RMIT SEPT 2020 Major Project
+# RMIT SEPT 2020 Major project
 
 # Group 7-tues-14-30-4
 
