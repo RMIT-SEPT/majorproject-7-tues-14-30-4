@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import createUser from '../../actions/personActions'
 
 class AddUser extends Component {
     constructor(){
@@ -6,11 +7,12 @@ class AddUser extends Component {
 
         this.state= {
         id: "",
-        firstName: "",
-        lastName: "",
+        name: "",
         password: "",
-        userType: "",
-        phone: ""
+        phone: "",
+        user_type: "",
+        address: "",
+        userIdentifier: "",
     }; 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -24,14 +26,19 @@ class AddUser extends Component {
         e.preventDefault();
         const newUser = {
             id: this.state.id,
-            firstName: this.state.firstName,
-            lastName: this.state.lastName,
-            password:this.state.password,
+            name: this.state.name,
+            phone: this.state.phone,
+            password: this.state.password,
             userType: this.state.userType,
-            phone: this.state.phone    
+            address: this.state.address,
+            userIdentifier: this.state.userIdentifier,  
         }
 
         console.log(newUser);
+
+        createUser();
+
+        console.log("meh")
     }
 
     render() {
@@ -47,25 +54,16 @@ class AddUser extends Component {
                     />    
                 </div>
 
-                <h4>First Name</h4>
+                <h4>Name</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
-                    placeholder="First Name"
-                    name="firstName"
-                    value= {this.state.firstName}
+                    placeholder="Name"
+                    name="name"
+                    value= {this.state.name}
                     onChange = {this.onChange}
                         />
                 </div>
-                
-                <h4>Last Name</h4>
-                <div className="form">
-                    <input type="text" className="form-input" 
-                    placeholder="Last Name"
-                    name="lastName"
-                    value= {this.state.lastName}
-                    onChange = {this.onChange}
-                        />
-                </div>
+
 
                 <h4>Password</h4>
                 <div className="form">
@@ -73,6 +71,27 @@ class AddUser extends Component {
                     placeholder="Password"
                     name="password"
                     value= {this.state.password}
+                    onChange = {this.onChange}
+                        />
+                </div>
+
+
+                <h4>Phone Number</h4>
+                <div className="form">
+                    <input type="text" className="form-input" 
+                    placeholder="Phone Number"
+                    name="phone"
+                    value= {this.state.phone}
+                    onChange = {this.onChange}
+                        />
+                </div>
+                
+                <h4>Address</h4>
+                <div className="form">
+                    <input type="text" className="form-input" 
+                    placeholder="Address"
+                    name="address"
+                    value= {this.state.address}
                     onChange = {this.onChange}
                         />
                 </div>
@@ -87,15 +106,16 @@ class AddUser extends Component {
                         />
                 </div>
 
-                <h4>Phone Number</h4>
+                <h4>User Identifier</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
-                    placeholder="Phone Number"
-                    name="phone"
-                    value= {this.state.phone}
+                    placeholder="User Identifier"
+                    name="userIdentifier"
+                    value= {this.state.userIdentifier}
                     onChange = {this.onChange}
                         />
                 </div>
+
                 <br/>
                 <input type="submit" className="Form Submit" />
             </form>
