@@ -1,51 +1,136 @@
 body {
     font: 14px "Century Gothic", Futura, sans-serif;
-    margin: 20px;
+    margin: 0px;
+    width: 100%;
+    margin-bottom: 50px;
+    height: 100%;
+
+    display:flex;
+    flex-direction:column
   }
+
+.overall
+{
+  height: 100%;
+}
+
+html {
+  height: 100%;
+}
+
+.title
+{
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+  background-color: rgb(58, 58, 58);
+  color: white;
+}
+
+.container
+{
+  width: 100%;
+  display: flex;
+  vertical-align: middle;
+}
   
-  ol, ul {
-    padding-left: 30px;
-  }
+.navBar
+{
+  border-top: 2px solid rgb(30, 30, 30);
+  /* border: 2px solid blue; */
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
+  display: flex;
+  background-color: rgb(58, 58, 58);
+  color: white;
+  vertical-align: middle;
+}
+
+.navBox
+{
+  width: 100%;
+  display: inline-block;
+  justify-content: space-around;
+  /* border: 2px solid green; */
+  vertical-align: middle;
+
+}
+
+.navText
+{
+  text-decoration: none;
+  color: white;
+  text-align: center;
+  vertical-align: middle;
+  /* border: 2px solid purple; */
+}
+.navText:hover 
+{
+  color: rgb(124, 124, 124);
+}
+
+.footer
+{
+  border-top: 2px solid rgb(30, 30, 30);
+  background-color: rgb(58, 58, 58);
+  text-align: center;
+  padding: 20px;
+  flex: 0 0 50px;
+  margin-top: auto;
+  color: white;
+
+}
+
+.column
+{
+  width: 45%;
+  border: 1px solid red;
+  height: 100%;
+  display: inline-block;
+  justify-content: space-between;
   
-  .board-row:after {
-    clear: both;
-    content: "";
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .square {
-    background: #fff;
-    border: 1px solid #999;
-    float: left;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 34px;
-    height: 34px;
-    margin-right: -1px;
-    margin-top: -1px;
-    padding: 0;
-    text-align: center;
-    width: 34px;
-  }
-  
-  .square:focus {
-    outline: none;
-  }
-  
-  .kbd-navigation .square:focus {
-    background: #ddd;
-  }
-  
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
+
+}
+
+.Body
+{
+  height: 100%;
+  text-align: center;
+}
+
+.formBox
+{
+  border: 2px solid rgb(30, 30, 30);
+  width: 80%;
+  /* display: inline-block; */
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  text-align: center;
+}
+
+.addUserButton
+{
+  padding: 10px;
+  border: 1px black solid;
+  color: white;
+  background-color: rgb(58, 58, 58);
+  /* width: 20%; */
+  text-align: center;
+  display: inline-block;
+}
+
+.addUserButton:hover 
+{
+  background-color: rgb(124, 124, 124);
+}
+
+
+.dashboard
+{
+  /* margin: 10px; */
+  /* height: 100%; */
+  text-align: center;
+}
