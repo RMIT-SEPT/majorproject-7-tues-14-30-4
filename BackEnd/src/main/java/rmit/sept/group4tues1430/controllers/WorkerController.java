@@ -2,10 +2,7 @@ package rmit.sept.group4tues1430.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import rmit.sept.group4tues1430.model.Customer;
 import org.springframework.http.HttpStatus;
 import rmit.sept.group4tues1430.model.Worker;
@@ -26,7 +23,7 @@ public class WorkerController {
         return workerService.getAllWorkers();
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getWorkerByName(@PathVariable String name)
     {
         Worker worker = workerService.getWorkerByName(name);
@@ -34,7 +31,7 @@ public class WorkerController {
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?>  getWorkerByID(@PathVariable String id)
     {
         Worker worker = workerService.getWorkerByID(id);
@@ -48,11 +45,11 @@ public class WorkerController {
 //        return workerService.findAllWorkers();
 //    }
 
-//    @GetMapping("/{id}")
-//    public void deleteWorkerByIdentifier(@PathVariable String id)
-//    {
-//        workerService.deleteWorkerByIdentifier(id);
-//    }
+    @DeleteMapping("/id/{id}")
+    public void deleteWorkerByIdentifier(@PathVariable String id)
+    {
+        workerService.deleteWorkerByIdentifier(id);
+    }
 
 //    @GetMapping("/{worker}")
 //    public  ResponseEntity<?> saveOrUpdateWorker(Worker worker)
