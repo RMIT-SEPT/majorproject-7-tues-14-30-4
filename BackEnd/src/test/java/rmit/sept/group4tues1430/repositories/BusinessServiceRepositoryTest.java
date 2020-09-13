@@ -7,12 +7,12 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import rmit.sept.group4tues1430.model.BusinessService;
-import rmit.sept.group4tues1430.model.User;
 
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.util.AssertionErrors.assertNull;
+import static org.springframework.test.util.AssertionErrors.assertEquals;
 
 @RunWith(SpringRunner.class)
 @DataJpaTest
@@ -35,7 +35,6 @@ public class BusinessServiceRepositoryTest {
 
         BusinessService serviceFound = businessServiceRepository.findByName("Hairdresser");
 
-        //assertThat(serviceFound.getName()).isEqualTo(serviceFound.getName());
         assertThat(service).isEqualTo(serviceFound);
 
     }
@@ -63,6 +62,24 @@ public class BusinessServiceRepositoryTest {
         assertNull("Not found", serviceFound);
     }
 
+    @Test
+    public void findAll_ReturnsFullCollection_IfMoreThanOneBusinessServicePresent() {
+        BusinessService service = new BusinessService();
+        service.setName("Hairdresser");
+        BusinessService service1 = new BusinessService();
+        service1.setName("Dentist");
+        entityManager.persist(service);
+        entityManager.persist(service1);
+        entityManager.flush();
+
+        Iterable<BusinessService> allBusinessServices = businessServiceRepository.findAll();
+        int count = 0;
+        for (BusinessService i  : allBusinessServices) {
+            ++count;
+        }
+
+        assertEquals("Size of returned collection is not as expected", 2, count);
+    }
 //  Test findById()?
 
 
