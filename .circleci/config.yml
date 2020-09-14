@@ -56,6 +56,13 @@ jobs:
           command: |
             eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
             docker push $FULL_IMAGE_NAME
+            
+  frontend:
+    docker:
+      - image: circleci/node:10.8.0
+
+    working_directory: ~/Frontend
+
 workflows:
   build-deploy-qa:
     jobs:
@@ -63,3 +70,4 @@ workflows:
           filters:
             branches:
               only: master
+      - frontend
