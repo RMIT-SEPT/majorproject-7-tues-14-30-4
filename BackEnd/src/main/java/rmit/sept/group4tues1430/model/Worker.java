@@ -16,14 +16,14 @@ public class Worker extends User
 
     }
 
-    public Worker(String id, String firstName, String lastName, String password, String userType, String phone,
-                  String days, String times, String company_ID)
-    {
-        super(id, firstName, lastName, password, userType, phone);
-        this.days = days;
-        this.times = times;
-        this.company_ID = company_ID;
-    }
+    // public Worker(String id, String firstName, String lastName, String password, String userType, String phone,
+    //               String days, String times, String company_ID)
+    // {
+    //     super(id, firstName, lastName, password, userType, phone);
+    //     this.days = days;
+    //     this.times = times;
+    //     this.company_ID = company_ID;
+    // }
 
     public String getDays(){
         return days;
