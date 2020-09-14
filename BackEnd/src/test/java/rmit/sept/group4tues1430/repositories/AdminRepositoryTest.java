@@ -7,7 +7,6 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.junit4.SpringRunner;
 import rmit.sept.group4tues1430.model.Admin;
-import rmit.sept.group4tues1430.model.User;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.springframework.test.util.AssertionErrors.assertNull;
@@ -53,7 +52,7 @@ public class AdminRepositoryTest {
     }
 
     @Test
-    public void findByName_ReturnsUser_IfUserIsPresentInSystem() {
+    public void findByName_ReturnsAdmin_IfAdminIsPresentInSystem() {
         Admin admin = new Admin();
         admin.setName("Some name");
         admin.setUserType("Admin");

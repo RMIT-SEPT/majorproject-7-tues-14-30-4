@@ -62,7 +62,7 @@ public class UserRestController {
         return userService.findAllUsers();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public void deleteUserById(@PathVariable String id) {
         userService.deleteUserByIdentifier(id);
     }
