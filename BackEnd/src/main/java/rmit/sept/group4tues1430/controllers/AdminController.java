@@ -24,7 +24,7 @@ public class AdminController {
         return adminService.getAllAdmins();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> getAdminById(@PathVariable String id)
     {
         Admin admin = adminService.findByID(id);
@@ -39,7 +39,7 @@ public class AdminController {
 //
 //    }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getAdminByName(@PathVariable String name)
     {
         Admin admin = adminService.getAdminByName(name);

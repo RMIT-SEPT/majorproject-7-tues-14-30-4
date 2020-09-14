@@ -39,7 +39,7 @@ public class UserRestController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id)
     {
         User user = userService.getUserByID(id);
@@ -47,7 +47,7 @@ public class UserRestController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getUserByName(@PathVariable String name)
     {
         User user = userService.getUserByName(name);
@@ -60,7 +60,7 @@ public class UserRestController {
         return userService.findAllUsers();
     }
 
-    @DeleteMapping("/{id}")
+    @DeleteMapping("/id/{id}")
     public void deleteUserById(@PathVariable String id) {
         userService.deleteUserByIdentifier(id);
     }
