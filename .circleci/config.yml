@@ -5,6 +5,7 @@ orbs:
 parameters:
   app-dir: 
     default: /Frontend
+    type: string
 
 workflows:
   node-tests:
