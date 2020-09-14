@@ -62,6 +62,9 @@ jobs:
       - image: circleci/node:10.8.0
 
     working_directory: ~/Frontend
+    steps:
+      - checkout
+      - run: yarn test
 
 workflows:
   build-deploy-qa:
