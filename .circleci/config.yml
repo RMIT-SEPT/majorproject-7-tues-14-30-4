@@ -61,7 +61,7 @@ jobs:
     docker:
       - image: circleci/node:10.8.0
 
-    working_directory: ~/FrontEnd
+    working_directory: ~/project/FrontEnd
     steps:
       - checkout
       - run: yarn test
