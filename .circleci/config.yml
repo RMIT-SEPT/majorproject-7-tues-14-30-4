@@ -3,12 +3,11 @@ orbs:
   node: circleci/node@3.0.0
 
 workflows:
-  parameters:
+  node-tests:
+    parameters:
       app-dir: 
         default: /Frontend
         type: string
-
-  node-tests:
     jobs: 
       - node/test
     
