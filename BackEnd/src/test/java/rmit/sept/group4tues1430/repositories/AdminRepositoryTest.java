@@ -81,5 +81,48 @@ public class AdminRepositoryTest {
         assertThat(admin).isEqualTo(adminFound);
     }
 
+    @Test
+    public void findByUserIdentifier_ReturnsNull_IfAdminIdentifierIsIncorrect() {
+        Admin admin = new Admin();
+        admin.setName("Some name");
+        admin.setUserType("Admin");
+        admin.setUserIdentifier("abc123");
+        admin.setPassword("password");
 
+        entityManager.persist(admin);
+        entityManager.flush();
+
+        Admin adminFound = adminRepository.findByUserIdentifier("abc");
+        assertNull("Not found", adminFound);
+    }
+
+    @Test
+    public void findByName_ReturnsNull_IfAdminNameIsIncorrect() {
+        Admin admin = new Admin();
+        admin.setName("Some name");
+        admin.setUserType("Admin");
+        admin.setUserIdentifier("abc123");
+        admin.setPassword("password");
+
+        entityManager.persist(admin);
+        entityManager.flush();
+
+        Admin adminFound = adminRepository.findByName("Some");
+       assertNull("Not found", adminFound);
+    }
+
+    @Test
+    public void findByUserIdentifier_ReturnsNull_IfAdminIdentifierToSearchIsEmpty() {
+        Admin admin = new Admin();
+        admin.setName("Some name");
+        admin.setUserType("Admin");
+        admin.setUserIdentifier("abc123");
+        admin.setPassword("password");
+
+        entityManager.persist(admin);
+        entityManager.flush();
+
+        Admin adminFound = adminRepository.findByUserIdentifier(" ");
+        assertNull("Not found", adminFound);
+    }
 }
