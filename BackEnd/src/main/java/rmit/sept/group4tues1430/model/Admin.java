@@ -14,11 +14,11 @@ public class Admin extends User
     public Admin() {
     }
 
-    public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
-                 boolean privileges) {
-        super(id, firstName, lastName, password, userType, phone);
-        this.privileges = privileges;
-    }
+    // public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
+    //              boolean privileges) {
+    //     super(id, firstName, lastName, password, userType, phone);
+    //     this.privileges = privileges;
+    // }
 
     public boolean getPrivileges() {
         return privileges;

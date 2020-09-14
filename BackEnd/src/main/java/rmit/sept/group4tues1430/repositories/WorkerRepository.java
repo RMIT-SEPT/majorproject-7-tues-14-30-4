@@ -15,7 +15,7 @@ public interface WorkerRepository extends CrudRepository<Worker, Long> {
     public Worker findById(String id);
 
 
-    public Worker findByPhone(String phone);
+    //public Worker findByPhone(String phone);
 
 
 

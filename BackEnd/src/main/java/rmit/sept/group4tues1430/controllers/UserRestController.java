@@ -14,6 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin("*")
 public class UserRestController {
 
     @Autowired
@@ -39,7 +40,8 @@ public class UserRestController {
         return userService.getAllUsers();
     }
 
-    @GetMapping("/{id}")
+    // Have to include the column you're looking for e.g. "id/{id}" instead of just "/{id}"
+    @GetMapping("/id/{id}")
     public ResponseEntity<?> getUserById(@PathVariable String id)
     {
         User user = userService.getUserByID(id);
@@ -47,7 +49,7 @@ public class UserRestController {
         return new ResponseEntity<User>(user, HttpStatus.OK);
     }
 
-    @GetMapping("/{name}")
+    @GetMapping("/name/{name}")
     public ResponseEntity<?> getUserByName(@PathVariable String name)
     {
         User user = userService.getUserByName(name);
