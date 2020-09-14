@@ -3,7 +3,8 @@ orbs:
   node: circleci/node@3.0.0
   
 parameters:
-  app-dir: /Frontend
+  app-dir: 
+    default: ~/project/Frontend
 
 workflows:
   node-tests:
