@@ -11,6 +11,7 @@ import org.springframework.http.HttpStatus;
 import rmit.sept.group4tues1430.services.BusinessServiceService;
 
 import java.util.List;
+import java.lang.*;
 
 @RestController
 @RequestMapping("/api/businessService")
@@ -28,9 +29,9 @@ public class BusinessServiceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getBusinessServiceByID(@PathVariable String id) {
+    public ResponseEntity<?> getBusinessServiceByBusinessIdentifier(@PathVariable String id) {
 
-        BusinessService businessService = businessServiceService.getBusinessServiceByID(id);
+        BusinessService businessService = businessServiceService.getBusinessServiceByBusinessIdentifier(id);
 
         return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
     }

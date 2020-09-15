@@ -17,15 +17,22 @@ public class BusinessService {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotBlank(message = "Business Service identifier must not be blank")
+    private String businessIdentifier;
+
     @NotBlank(message = "Business Service name must not be blank")
     private String name;
+
+    @NotBlank(message = "For each business service there must be an admin ID corresponding to it")
+    private String adminId;
 
     public BusinessService() {
     }
 
-    public BusinessService(String name, Long id) {
-        this.name = name;
-        this.id = id;
+    public BusinessService(String name, String businessIdentifier, String adminId) {
+      this.name = name;
+      this.businessIdentifier = businessIdentifier;
+      this.adminId = adminId;
     }
 
     public Long getId() {
@@ -44,4 +51,11 @@ public class BusinessService {
         this.name = name;
     }
 
+    public String getBusinessIdentifier() { return businessIdentifier; }
+
+    public void setBusinessIdentifier(String businessIdentifier) { this.businessIdentifier = businessIdentifier; }
+
+    public String getAdminId() { return adminId; }
+
+    public void setAdminId(String adminId) { this.adminId = adminId; }
 }
