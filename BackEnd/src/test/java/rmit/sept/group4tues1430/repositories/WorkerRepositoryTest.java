@@ -96,4 +96,19 @@ public class WorkerRepositoryTest {
         assertEquals("Size of returned collection is not as expected", 2, count);
     }
 
+    @Test
+    public void findByUserIdentifier_ReturnsCorrectWorker_IfWorkerIsPresent() {
+        Worker worker = new Worker();
+        worker.setName("Worker Bee");
+        worker.setUserType("Worker");
+        worker.setUserIdentifier("abc123");
+        worker.setPassword("password");
+
+        entityManager.persist(worker);
+        entityManager.flush();
+
+        Worker workerFound = workerRepository.findByUserIdentifier("abc123");
+        assertThat(worker).isEqualTo(workerFound);
+    }
+
 }
