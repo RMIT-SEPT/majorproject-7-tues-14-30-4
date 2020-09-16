@@ -5,7 +5,7 @@ import Footer from './components/Layout/Footer';
 import Body from './components/Layout/Body';
 import Dashboard from './components/Dashboard';
 import Signin from './components/Signin/Signin'
-
+import Services from './components/Services'
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Provider} from "react-redux";
@@ -20,6 +20,7 @@ function App() {
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/" component={Signin} />
           <Route exact path="/signin" component={Signin} />
+          <Route exact path="/services" component={Services} />
           <Footer/>
         </div>
       </Router>
