@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import {link, Link} from "react-router-dom";
-import {UserProfile} from '../../Tools/UserProfile';
+import UserProfile from '../../Tools/UserProfile';
 import isLoggedIn from '../../Tools/tools_helper';
 
 

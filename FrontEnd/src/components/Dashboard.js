@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import AddUser from './User/AddUser'
 import UserProfile from '../Tools/UserProfile';
 
-import {createUser, UserProfiles} from '../actions/personActions'
+// import {createUser, UserProfiles} from '../actions/personActions'
  
 // import CreatePersonButton from './Persons/CreatePersonButton';
 

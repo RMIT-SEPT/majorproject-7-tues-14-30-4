@@ -34,4 +34,4 @@ var UserProfile = (function() {
   
   })();
   
-  // export default UserProfile;
+  export default UserProfile;

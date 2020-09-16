@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import {link, Link} from "react-router-dom";
-import {UserProfile} from './UserProfile';
+import UserProfile from '../Tools/UserProfile';
+
+// UserProfile.getName();
 
 function isLoggedIn()
 {
-  console.log(UserProfile.getID())
   if (UserProfile.getName() != "") {
     return (
       <p>
@@ -23,5 +24,10 @@ function isLoggedIn()
     );
   }
 }
+
+// function isLoggedIn()
+// {
+//   console.log(UserProfile)
+// }
 
 export default isLoggedIn;
