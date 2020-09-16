@@ -18,6 +18,12 @@ class Header extends React.Component
                                 Home
                                 </Link>
                             </p>
+                            <p>
+                                <Link to="/signin"
+                                className="navText">
+                                Signin
+                                </Link>
+                            </p>
                         </div>
                         {/*<div className="navBox">
                             <p>

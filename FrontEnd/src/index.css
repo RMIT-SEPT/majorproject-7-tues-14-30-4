@@ -50,7 +50,7 @@ html {
 .navBox
 {
   width: 100%;
-  display: inline-block;
+  display: flex;
   justify-content: space-around;
   /* border: 2px solid green; */
   vertical-align: middle;
@@ -63,7 +63,6 @@ html {
   color: white;
   text-align: center;
   vertical-align: middle;
-  /* border: 2px solid purple; */
 }
 .navText:hover 
 {
@@ -89,7 +88,7 @@ html {
   height: 100%;
   display: inline-block;
   justify-content: space-between;
-  
+  vertical-align: top;
 
 }
 

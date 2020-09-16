@@ -2,9 +2,9 @@ import React from 'react';
 import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 // import LeftColumn from './components/Layout/LeftColumn';
-import Body from './components/Layout/Body';
 import Dashboard from './components/Dashboard';
 import Signin from './components/Signin/Signin'
+import Home from './components/Home'
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -18,7 +18,9 @@ function App() {
         <div className="overall">
           <Header/>
           <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/" component={Signin} />
+          <Route exact path="/dashboard/:id" component={Dashboard} />
+          <Route exact path="/" component={Home} />
+          <Route exact path="/home" component={Home} />
           <Route exact path="/signin" component={Signin} />
           <Footer/>
         </div>

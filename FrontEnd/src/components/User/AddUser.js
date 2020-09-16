@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import createUser from '../../actions/personActions'
+import {createUser, UserProfiles} from '../../actions/personActions'
+import { withRouter } from 'react-router-dom';
+
+import UserProfile from '../../Tools/UserProfile';
+
+
+
 
 class AddUser extends Component {
     constructor(){
@@ -38,7 +44,14 @@ class AddUser extends Component {
 
         createUser();
 
-        console.log("meh")
+        // UserProfiles(newUser['userIdentifier']);
+
+        UserProfile.setName(newUser["name"]);
+        console.log(UserProfile.getName());
+
+        this.props.history.push(`/dashboard/${newUser["userIdentifier"]}`);
+        // window.location.reload();
+        // UserProfiles(1);
     }
 
     render() {
@@ -122,4 +135,5 @@ class AddUser extends Component {
         )
     }
 }
-export default AddUser;
+export default withRouter(AddUser);
+// export default AddUser;

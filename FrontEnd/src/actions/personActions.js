@@ -26,4 +26,18 @@ export function createUser(user)
       });
 }
 
-export default createUser;
+export function UserProfiles(id)
+{
+  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
+
+  axios.get(string).then(res => {
+  const data = res.data;
+  })
+}
+
+const funcs = {
+  UserProfiles() {},
+  createUser() {}
+}
+
+export default funcs;
