@@ -3,7 +3,8 @@ import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 // import LeftColumn from './components/Layout/LeftColumn';
 import Dashboard from './components/Dashboard';
-import Signin from './components/Signin/Signin'
+import Signin from './components/Session/Signin'
+import Logout from "./components/Session/Logout";
 import Home from './components/Home'
 
 
@@ -16,13 +17,14 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="overall">
-          <Header/>
+          <Header />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/dashboard/:id" component={Dashboard} />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/signin" component={Signin} />
-          <Footer/>
+          <Route exact path="/logout" component={Logout} />
+          <Footer />
         </div>
       </Router>
     </Provider>
