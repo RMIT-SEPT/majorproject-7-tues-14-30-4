@@ -17,13 +17,14 @@ var UserProfile = (function() {
 
     var setID = function(id) {
       userID = id;     
+      console.log("Setting ID")
       // Also set this in cookie/localStorage
     };
 
     var logout = function() {
       setName("")
       setID("")
-    }
+    };
   
     return {
       getName: getName,

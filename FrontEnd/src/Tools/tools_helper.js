@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import {link, Link} from "react-router-dom";
 import UserProfile from '../Tools/UserProfile';
 
-// UserProfile.getName();
-
 function isLoggedIn()
 {
-  if (UserProfile.getName() != "") {
+  console.log("Checking if user is logged in")
+  // UserProfile.setID("owqnfc")
+  console.log(UserProfile.getID())
+  if (UserProfile.getID() != "") {
+    console.log("Logged in")
     return (
       <p>
         <Link to="/logout" className="navText">
@@ -15,10 +17,11 @@ function isLoggedIn()
       </p>
     );
   } else {
+    console.log("Not logged in")
     return (
       <p>
-        <Link to="/signin" className="navText">
-          Signin
+        <Link to="/login" className="navText">
+          Login
         </Link>
       </p>
     );

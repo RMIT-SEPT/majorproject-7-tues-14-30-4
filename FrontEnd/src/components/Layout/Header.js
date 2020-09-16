@@ -7,21 +7,21 @@ import isLoggedIn from '../../Tools/tools_helper';
 class Header extends React.Component 
 {
    
-    constructor(props)
-    {
-        super();
-        this.state = {
-            signedIn: false
-        }
+    // constructor(props)
+    // {
+    //     super();
+    //     this.state = {
+    //         signedIn: false
+    //     }
 
-    }
-    checkIfLoggedIn()
-    {
-        if (UserProfile.getName() != "")
-        {
-            this.state.signedIn = true;
-        }
-    }
+    // }
+    // checkIfLoggedIn()
+    // {
+    //     if (UserProfile.getID() !== "")
+    //     {
+    //         this.state.signedIn = true;
+    //     }
+    // }
     render() {
         return (
             <div>

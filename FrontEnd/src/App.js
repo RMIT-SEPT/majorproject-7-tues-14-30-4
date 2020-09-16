@@ -3,7 +3,7 @@ import Header from './components/Layout/Header';
 import Footer from './components/Layout/Footer';
 // import LeftColumn from './components/Layout/LeftColumn';
 import Dashboard from './components/Dashboard';
-import Signin from './components/Session/Signin'
+import Login from './components/Session/Login'
 import Logout from "./components/Session/Logout";
 import Home from './components/Home'
 
@@ -22,7 +22,7 @@ function App() {
           <Route exact path="/dashboard/:id" component={Dashboard} />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
-          <Route exact path="/signin" component={Signin} />
+          <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
           <Footer />
         </div>

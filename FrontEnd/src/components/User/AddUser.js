@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {createUser, UserProfiles} from '../../actions/personActions'
+import {createUser} from '../../actions/personActions'
 import { withRouter } from 'react-router-dom';
 
 import UserProfile from '../../Tools/UserProfile';
