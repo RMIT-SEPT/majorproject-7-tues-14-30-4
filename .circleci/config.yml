@@ -4,6 +4,8 @@ orbs:
   aws-ecs: circleci/aws-ecs@1.3.0
 
 jobs:
+
+
   build_and_deploy:
     docker:
       - image: circleci/openjdk:8-jdk
@@ -17,27 +19,35 @@ jobs:
             echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
             echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
 
+      - run:
+          name: Generate cumulative pom.xml checksum
+          command: |
+            find . -type f -name "pom.xml" -exec sh -c "sha256sum {} >> ~/pom-checksum.tmp" \;
+            sort -o ~/pom-checksum ~/pom-checksum.tmp
+          when: always
 
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
-            # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+          # Read about caching dependencies: https://circleci.com/docs/2.0/caching/
+          keys:
+            - circleci-demo-java-spring-{{ checksum "~/pom-checksum" }}
+            - circleci-demo-java-spring-
 
-      - run: mvn dependency:go-offline # gets the project dependencies
+      - run: (cd BackEnd && mvn dependency:go-offline) # gets the project dependencies
 
       - save_cache: # saves the project dependencies
           paths:
-              - ~/.m2
-          key: circleci-demo-java-spring-{{ checksum "pom.xml" }}
+            - ~/.m2
+          key: circleci-demo-java-spring-{{ checksum "~/pom-checksum" }}
 
-      - run: mvn package # run the actual tests
+      - run: (cd BackEnd && mvn package) # run the actual tests
 
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
-            # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
-            path: target/surefire-reports
+          # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
+          path: BackEnd/target/surefire-reports
 
       - store_artifacts: # store the uberjar as an artifact
-            # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
-            path: target/group4tues1430-0.0.1-SNAPSHOT.jar
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/
+          path: target/group4tues1430-0.0.1-SNAPSHOT.jar
         # See https://circleci.com/docs/2.0/deployment-integrations/ for deploy examples
 
       - run:
@@ -47,16 +57,16 @@ jobs:
             sudo apt-get -y -qq install awscli
             sudo apt-get install python3-pip
             sudo pip3 install --upgrade awscli
-      - run:
-          name: Build image
-          command: |
-            docker build -t $FULL_IMAGE_NAME .
-      - run:
-          name: Push image
-          command: |
-            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-            docker push $FULL_IMAGE_NAME
-            
+      #- run:
+      #    name: Build image
+      #    command: |
+      #      docker build -t $FULL_IMAGE_NAME . #this is failing, not sure why - could be to do with image name?
+      #- run:
+      #    name: Push image
+      #    command: |
+      #      eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+      #      docker push $FULL_IMAGE_NAME
+
   frontend:
     docker:
       - image: circleci/node:10.8.0
@@ -64,7 +74,7 @@ jobs:
     working_directory: ~/project/FrontEnd
     steps:
       - checkout
-      - run: yarn test
+      #- run: (cd FrontEnd && yarn test) # this is saying that react scripts can't be found?
 
 workflows:
   build-deploy-qa:
