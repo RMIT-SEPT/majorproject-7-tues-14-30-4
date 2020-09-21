@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import AddUser from './User/AddUser'
+import UserProfile from '../Tools/UserProfile';
 
-import {createUser, UserProfiles} from '../actions/personActions'
+// import {createUser, UserProfiles} from '../actions/personActions'
  
 // import CreatePersonButton from './Persons/CreatePersonButton';
 
@@ -11,7 +12,8 @@ class Dashboard extends Component {
     render() {
         return (
             <div className="dashboard">
-                <p>Welcome to the User Dashboard!</p>
+                <p>Welcome to the User Dashboard {UserProfile.getName()}!</p>
+
                 <br/>
 
                 <p>Eventually only admins will be able to see the following</p>

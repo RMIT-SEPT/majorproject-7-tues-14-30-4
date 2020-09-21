@@ -32,13 +32,10 @@ export function createUser(user)
 
 export function UserProfiles(id)
 {
-  const string = "http://localhost:8080/api/user/id/" + id
+  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
 
   axios.get(string).then(res => {
   const data = res.data;
-  console.log(res.data);
-  console.log("finding user")
-  
   })
 }
 

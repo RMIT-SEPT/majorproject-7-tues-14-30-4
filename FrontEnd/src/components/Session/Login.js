@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import {link, Link} from "react-router-dom";
+import UserProfile from '../../Tools/UserProfile';
 
-class Signin extends Component {
+class Login extends Component {
     constructor(){
       super();
 
@@ -20,12 +21,14 @@ class Signin extends Component {
 
     onSubmit(e){
         e.preventDefault();
-        const newUser = {
+        const user = {
             id: this.state.id,
             password: this.state.password,  
         }
 
-        console.log(newUser);
+        UserProfile.setID(user["id"])
+
+      console.log(UserProfile.getID());
         this.props.history.push('/dashboard');
     }
 
@@ -54,7 +57,9 @@ class Signin extends Component {
                 onChange = {this.onChange}
                     />
             </div>
-            <input type="submit" className="Form Submit" />
+            <p>
+              <input type="submit" className="mainbutton" />
+            </p>
           </form>
           
           {/*
@@ -70,4 +75,4 @@ class Signin extends Component {
     )
   }
 }
-export default Signin;
+export default Login;

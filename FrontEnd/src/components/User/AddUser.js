@@ -1,5 +1,11 @@
 import React, { Component } from 'react'
-import {createUser, UserProfiles} from '../../actions/personActions'
+import {createUser} from '../../actions/personActions'
+import { withRouter } from 'react-router-dom';
+
+import UserProfile from '../../Tools/UserProfile';
+
+
+
 
 class AddUser extends Component {
     constructor(){
@@ -36,7 +42,13 @@ class AddUser extends Component {
 
         createUser(newUser);
 
-        console.log(UserProfiles(newUser['userIdentifier']));
+        // UserProfiles(newUser['userIdentifier']);
+
+        UserProfile.setName(newUser["name"]);
+        console.log(UserProfile.getName());
+
+        this.props.history.push(`/dashboard/${newUser["userIdentifier"]}`);
+        // window.location.reload();
         // UserProfiles(1);
     }
 
@@ -107,9 +119,12 @@ class AddUser extends Component {
                 </div>
 
                 <br/>
-                <input type="submit" className="Form Submit" />
+                <p>
+                    <input type="submit" className="mainbutton" />
+                </p>
             </form>
         )
     }
 }
-export default AddUser;
+export default withRouter(AddUser);
+// export default AddUser;
