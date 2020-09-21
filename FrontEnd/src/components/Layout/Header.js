@@ -38,48 +38,18 @@ class Header extends React.Component
                                 </Link>
                             </p>
                             <p>
-<<<<<<< HEAD
                                 <Link to="/login"
                                 className="navText">
                                 Sign In
                                 </Link>
                             </p>
-
-                            {/*isLoggedIn()}
-
-                            {/*
                             <p>
-                                <Link to="/signin"
-                                className="navText">
-                                Signin
-                                </Link>
-                            </p>
-                            
-
-                             <p>
-                                <Link to="/logout"
-                                className="navText">
-                                Logout
-                                </Link>
-                            </p>
-                            */}
-=======
                                 <Link to="/services"
                                 className="navText">
                                 Services
                                 </Link>
                             </p>
->>>>>>> 4911e283b7a7f4ddca59301b75d44c8faad9104d
                         </div>
-                        {/*<div className="navBox">
-                            <p>
-                                <Link to="/dashboard"
-                                className="navText">
-                                Dashboard
-                                </Link>
-                            </p>
-                        </div>
-                        */} 
                     </div>
                 </nav>
             </div>

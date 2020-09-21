@@ -7,7 +7,7 @@ import Login from './components/Session/Login'
 import Logout from "./components/Session/Logout";
 import Home from './components/Home'
 import Signup from './components/Session/Signup'
-import Signin from './components/Signin/Signin'
+// import Signin from './components/Signin/Signin'
 import Services from './components/Services';
 
 
@@ -28,7 +28,6 @@ function App() {
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/signup" component={Signup} />
-          <Route exact path="/signin" component={Signin} />
           <Route exact path="/services" component={Services} />
           <Footer/>
         </div>
