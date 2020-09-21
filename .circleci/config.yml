@@ -76,7 +76,7 @@ jobs:
       - image: circleci/node:10.14.2
 
     environment:
-      ECR_REPOSITORY_NAME: septproject
+      ECR_REPOSITORY_NAME: septprojectfrontend
       FULL_IMAGE_NAME_FRONTEND: 286824662367.dkr.ecr.us-east-1.amazonaws.com/septprojectfrontend:latest
     steps:
       - checkout

@@ -22,6 +22,8 @@
     <list default="true" id="39256752-7b85-4036-a871-5f9b9ee5b5bc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.circleci/config.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.circleci/config.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BackEnd/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/BackEnd/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FrontEnd/src/Dockerfile" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +68,7 @@
       <workItem from="1600643088848" duration="71000" />
       <workItem from="1600646470354" duration="649000" />
       <workItem from="1600682745705" duration="2379000" />
+      <workItem from="1600696245934" duration="1710000" />
     </task>
     <servers />
   </component>
