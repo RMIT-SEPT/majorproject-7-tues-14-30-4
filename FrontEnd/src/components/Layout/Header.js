@@ -38,6 +38,7 @@ class Header extends React.Component
                                 </Link>
                             </p>
                             <p>
+<<<<<<< HEAD
                                 <Link to="/login"
                                 className="navText">
                                 Sign In
@@ -62,6 +63,13 @@ class Header extends React.Component
                                 </Link>
                             </p>
                             */}
+=======
+                                <Link to="/services"
+                                className="navText">
+                                Services
+                                </Link>
+                            </p>
+>>>>>>> 4911e283b7a7f4ddca59301b75d44c8faad9104d
                         </div>
                         {/*<div className="navBox">
                             <p>
