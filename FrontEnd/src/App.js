@@ -6,6 +6,7 @@ import Dashboard from './components/Dashboard';
 import Login from './components/Session/Login'
 import Logout from "./components/Session/Logout";
 import Home from './components/Home'
+import Signup from './components/Session/Signup'
 
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
@@ -24,6 +25,7 @@ function App() {
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
+          <Route exact path="/signup" component={Signup} />
           <Footer />
         </div>
       </Router>

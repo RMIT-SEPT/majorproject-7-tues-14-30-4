@@ -25,7 +25,7 @@ class Header extends React.Component
     render() {
         return (
             <div>
-                <h1 className = "title">The Application</h1>
+                <h1 className = "title">AGME's Online Appointment Booking System</h1>
                 {/* <p>{this.state.signedIn}</p> */}
                 
                 <nav className="navBar">
@@ -37,8 +37,14 @@ class Header extends React.Component
                                 Home
                                 </Link>
                             </p>
+                            <p>
+                                <Link to="/login"
+                                className="navText">
+                                Sign In
+                                </Link>
+                            </p>
 
-                            {isLoggedIn()}
+                            {/*isLoggedIn()}
 
                             {/*
                             <p>

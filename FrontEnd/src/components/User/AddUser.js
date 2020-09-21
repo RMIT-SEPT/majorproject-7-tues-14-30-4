@@ -42,7 +42,7 @@ class AddUser extends Component {
 
         console.log(newUser);
 
-        createUser();
+        createUser(newUser);
 
         // UserProfiles(newUser['userIdentifier']);
 
@@ -130,7 +130,9 @@ class AddUser extends Component {
                 </div>
 
                 <br/>
-                <input type="submit" className="Form Submit" />
+                <p>
+                    <input type="submit" className="mainbutton" />
+                </p>
             </form>
         )
     }
