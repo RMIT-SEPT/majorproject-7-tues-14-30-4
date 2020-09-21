@@ -5,19 +5,22 @@ orbs:
 
 jobs:
 
-
-  build_and_deploy:
+  build_and_deploy_backend:
     docker:
       - image: circleci/openjdk:8-jdk
 
+    environment:
+      ECR_REPOSITORY_NAME: septproject
+      FULL_IMAGE_NAME_BACKEND: 286824662367.dkr.ecr.us-east-1.amazonaws.com/septproject:latest
     steps:
       - checkout
       - setup_remote_docker
-      - run:
-          name: Setup common environment variables
-          command: |
-            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
-            echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
+
+      #- run:
+      #    name: Setup common environment variables
+      #    command: |
+      #      echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+      #      echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
 
       - run:
           name: Generate cumulative pom.xml checksum
@@ -57,16 +60,51 @@ jobs:
             sudo apt-get -y -qq install awscli
             sudo apt-get install python3-pip
             sudo pip3 install --upgrade awscli
-      #- run:
-      #    name: Build image
-      #    command: |
-      #      docker build -t $FULL_IMAGE_NAME . #this is failing, not sure why - could be to do with image name?
-      #- run:
-      #    name: Push image
-      #    command: |
-      #      eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      #      docker push $FULL_IMAGE_NAME
+      - run:
+          name: Build BackEnd image
+          command: |
+            cd BackEnd
+            docker build -t $FULL_IMAGE_NAME_BACKEND .
+      - run:
+          name: Push BackEnd image
+          command: |
+            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+            docker push $FULL_IMAGE_NAME_BACKEND
 
+  build_and_deploy_frontend:
+    docker:
+      - image: circleci/node:10.14.2
+
+    environment:
+      ECR_REPOSITORY_NAME: septproject
+      FULL_IMAGE_NAME_FRONTEND: 286824662367.dkr.ecr.us-east-1.amazonaws.com/septprojectfrontend:latest
+    steps:
+      - checkout
+      - run: (cd FrontEnd && yarn install)
+      - run: (cd FrontEnd && yarn test)
+      - setup_remote_docker
+
+      - run:
+          name: Install dependencies for AWS
+          command: |
+            sudo apt-get update
+            sudo apt-get -y -qq install awscli
+            sudo apt-get install python3-pip
+            sudo pip3 install --upgrade awscli
+
+      - run:
+          name: Build Frontend image
+          command: |
+            cd FrontEnd
+            docker build -t $FULL_IMAGE_NAME_FRONTEND .
+
+      - run:
+          name: Push Frontend image
+          command: |
+            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
+            docker push $FULL_IMAGE_NAME_FRONTEND
+
+  # to test frontend
   frontend:
     docker:
       - image: circleci/node:10.14.2 #circleci/node:10.8.0
@@ -119,7 +157,11 @@ jobs:
 workflows:
   build-deploy-qa:
     jobs:
-      - build_and_deploy:
+      - build_and_deploy_backend:
+          filters:
+            branches:
+              only: master
+      - build_and_deploy_frontend:
           filters:
             branches:
               only: master
