@@ -40,7 +40,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/BackEnd" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -69,18 +69,23 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="434" y="155" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1597976025179">
       <screen x="0" y="23" width="1440" height="829" />
     </state>
     <state x="434" y="155" key="#com.intellij.fileTypes.FileTypeChooser/0.23.1440.829@0.23.1440.829" timestamp="1597976025179" />
+    <state x="740" y="274" key="FileChooserDialogImpl" timestamp="1598231165883">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="274" key="FileChooserDialogImpl/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1598231165883" />
     <state width="600" height="424" key="javadoc.popup" timestamp="1597974470897">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
