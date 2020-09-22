@@ -2,14 +2,14 @@ package rmit.sept.group4tues1430.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import rmit.sept.group4tues1430.model.Admin;
+import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.services.AdminService;
 import org.springframework.http.HttpStatus;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -31,13 +31,13 @@ public class AdminController {
         return new ResponseEntity<Admin>(admin, HttpStatus.OK);
     }
 
-//    @GetMapping("/{admin}")
-//    public ResponseEntity<?> saveOrUpdateAdmin(Admin admin)
-//    {
-//        Admin admin1 = adminService.saveOrUpdateAdmin(admin);
-//        return new ResponseEntity<Admin>(admin1, HttpStatus.OK);
-//
-//    }
+    @PostMapping("")
+    public ResponseEntity<?> createNewAdmin(@Valid @RequestBody Admin admin, BindingResult result) {
+
+        Admin admin1 = adminService.saveOrUpdateAdmin(admin);
+        return new ResponseEntity<Admin>(admin1, HttpStatus.CREATED);
+    }
+
 
     @GetMapping("/name/{name}")
     public ResponseEntity<?> getAdminByName(@PathVariable String name)
@@ -52,9 +52,10 @@ public class AdminController {
         return adminService.findAllAdmins();
     }
 
-//    @GetMapping("/{id}")
-//    public void deleteAdminById(@PathVariable String id)
-//    {
-//        adminService.deleteAdminById(id);
-//    }
+    @DeleteMapping("/id/{id}")
+    public void deleteAdminById(@PathVariable String id)
+    {
+        adminService.deleteAdminById(id);
+    }
+
 }
