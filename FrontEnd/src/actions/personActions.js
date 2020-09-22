@@ -30,6 +30,21 @@ export function createUser(user)
       });
 }
 
+export function createCustomer(user)
+{
+    axios.post("http://localhost:8080/api/user", user)
+    .then(function (response) {
+      console.log("Customer fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Customer not fine")
+      // console.log(error);
+    });
+}
+
+
+
 export function UserProfiles(id)
 {
   const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
@@ -41,7 +56,8 @@ export function UserProfiles(id)
 
 const funcs = {
   UserProfiles() {},
-  createUser() {}
+  createUser() {},
+  createCustomer() {}
 }
 
 export default funcs;

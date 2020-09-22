@@ -27,13 +27,11 @@ class Login extends Component {
             password: this.state.password,  
         }
 
-        // UserProfile.setID(user["id"])
-        // isLoggedIn(user["id"]);
-
         localStorage.setItem("LoggedUser", user["id"])
 
-      console.log(UserProfile.getID());
         this.props.history.push('/dashboard');
+        
+        
     }
 
 
