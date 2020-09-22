@@ -6,11 +6,11 @@ import TestingRouter from './TestHelper'
 
 
 
-test('renders title', () => {
-  const { getByText } = render(<Dashboard />);
-  const linkElement = getByText(/User Dashboard/i);
-  expect(linkElement).toBeInTheDocument();
-});
+// test('renders title', () => {
+//   const { getByText } = render(<Dashboard />);
+//   const linkElement = getByText(/User Dashboard/i);
+//   expect(linkElement).toBeInTheDocument();
+// });
 
 describe('Check that redirection works', () => {
   it('has to redirect', () => {

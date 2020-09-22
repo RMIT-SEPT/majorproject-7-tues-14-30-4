@@ -15,6 +15,9 @@ public class BusinessServiceService {
 
     public BusinessService saveOrUpdateService(BusinessService service) {
 
+        if (service.getName().isEmpty()) {
+            throw new IllegalArgumentException();
+        }
         return businessServiceRepository.save(service);
     }
 
