@@ -68,6 +68,7 @@ jobs:
       - run:
           name: Push BackEnd image
           command: |
+            cd BackEnd
             eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
             docker push $FULL_IMAGE_NAME_BACKEND
 
@@ -101,6 +102,7 @@ jobs:
       - run:
           name: Push Frontend image
           command: |
+            cd FrontEnd
             eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
             docker push $FULL_IMAGE_NAME_FRONTEND
 
