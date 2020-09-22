@@ -3,7 +3,7 @@ import {link, Link} from "react-router-dom";
 import UserProfile from '../Tools/UserProfile';
 import axios from "axios";
 
-function isLoggedIn()
+function isLoggedInDisplay()
 {
   console.log("Checking if user is logged in")
   // UserProfile.setID("owqnfc")
@@ -29,24 +29,38 @@ function isLoggedIn()
   }
 }
 
-function get10Services()
+
+
+export function getUserName(id)
 {
-  const string = "http://localhost:8080/api/all";
+  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
 
-    axios.get(string).then(res => {
-    const data = res.data;
-    })
-  }
+  let recievedData
 
-// function isLoggedIn()
-// {
-//   console.log(UserProfile)
-// }
+  let promise = axios.get(string).then(recievedData => recievedData.data)
+
+  console.log(recievedData)
+
+  // console.log(recievedData.data[])
+
+  // const request = axios.get(string)
+
+  // // using .then, create a new promise which extracts the data
+  // const recievedData = request.then((response) => response.data)
+
+
+  
+  // // console.log(recievedData)
+  
+  // axios.get(string).then(res => {
+  //   const data = res.data;
+  // })
+
+}
 
 
 const funcs = {
-  isLoggedIn() {},
-  get10Services() {}
+  getUserName(id) {}
 }
 
 export default funcs;

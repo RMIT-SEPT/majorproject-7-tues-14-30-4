@@ -44,8 +44,8 @@ class AddUser extends Component {
 
         // UserProfiles(newUser['userIdentifier']);
 
-        UserProfile.setName(newUser["name"]);
-        console.log(UserProfile.getName());
+        // UserProfile.setName(newUser["name"]);
+        // console.log(UserProfile.getName());
 
         this.props.history.push(`/dashboard/${newUser["userIdentifier"]}`);
         // window.location.reload();

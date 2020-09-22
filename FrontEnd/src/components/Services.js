@@ -17,7 +17,10 @@ class Services extends Component {
         axios.get("http://localhost:8080/api/businessService/all/").then(res => {
             const services = res.data;
             this.setState({ services });
+            console.log(services)
         })
+
+        
     }
     
     render() {

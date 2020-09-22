@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {link, Link} from "react-router-dom";
 import UserProfile from '../../Tools/UserProfile';
+import { isLoggedIn } from '../../Tools/tools_helper';
 
 class Login extends Component {
     constructor(){
@@ -26,7 +27,10 @@ class Login extends Component {
             password: this.state.password,  
         }
 
-        UserProfile.setID(user["id"])
+        // UserProfile.setID(user["id"])
+        // isLoggedIn(user["id"]);
+
+        localStorage.setItem("LoggedUser", user["id"])
 
       console.log(UserProfile.getID());
         this.props.history.push('/dashboard');
