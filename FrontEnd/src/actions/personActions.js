@@ -26,6 +26,23 @@ export function createUser(user)
       });
 }
 
+export function createCustomer(user)
+{
+    axios.post("http://localhost:8080/api/user", user)
+    .then(function (response) {
+      console.log("Customer fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Customer not fine")
+      // console.log(error);
+    });
+
+    localStorage.setItem("LoggedUser", user["id"])
+}
+
+
+
 export function UserProfiles(id)
 {
   const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();

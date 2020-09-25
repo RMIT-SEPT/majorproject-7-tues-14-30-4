@@ -29,24 +29,27 @@ function isLoggedIn()
   }
 }
 
-function get10Services()
-{
-  const string = "http://localhost:8080/api/all";
 
-    axios.get(string).then(res => {
-    const data = res.data;
-    })
-  }
+
+export function getUser(id)
+{
+  console.log(id)
+  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
+
+  let recievedData
+
+  let promise = axios.get(string).then(recievedData => recievedData.data)
+
+  console.log(recievedData["data"])
+}
 
 // function isLoggedIn()
 // {
 //   console.log(UserProfile)
 // }
 
-
 const funcs = {
-  isLoggedIn() {},
-  get10Services() {}
+  getUser(id) {}
 }
 
 export default funcs;

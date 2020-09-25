@@ -1,26 +1,61 @@
 import React, { Component } from 'react'
 import AddUser from './User/AddUser'
 import UserProfile from '../Tools/UserProfile';
+import {getUser} from '../Tools/tools_helper'
+import CreateWorker from './Admin/CreateWorker'
 
 // import {createUser, UserProfiles} from '../actions/personActions'
  
 // import CreatePersonButton from './Persons/CreatePersonButton';
 
 class Dashboard extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            loggedUser: {}
+        };
+    }
+
+    componentDidMount() {
+        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+
+        console.log(string)
+
+        axios.get(string).then(res => {
+            const loggedUser = res.data;
+            this.setState({ loggedUser });
+
+            console.log(loggedUser)
+        })
+
+        console.log(this.state.loggedUser)
+    }
+
+    isAdmin()
+    {
+        if (this.state.loggedUser["userType"] === "Admin")
+        {
+            return <CreateWorker />
+        }
+    }
+
+
     render() {
+        const { isLoading, users, error } = this.state;
+
+        // const meh = getUser(this.state.loggedUser)
+        
+
         return (
             <div className="dashboard">
                 <p>Welcome to the User Dashboard {UserProfile.getName()}!</p>
 
                 <br/>
 
-                <p>Eventually only admins will be able to see the following</p>
-                <p className="addUserButton" onClick={hide}>Click here to add a user</p>
 
-
-                <div className="formBox" style={ { display: "none" }}>
-                    <AddUser/>
-                </div>
+                { this.isAdmin() }
+                
             </div>
         )
     }
@@ -28,20 +63,4 @@ class Dashboard extends Component {
 
 export default Dashboard;
 
-// Hidden Form Script
-function hide() {
-    // var x = document.getElementsByClassName("formBox");
-    var x = document.getElementsByClassName("formBox")[0];
 
-    if (x.style.display === "none") 
-    {
-        x.style.display = "block";
-        console.log("Form shown")
-    } 
-    else 
-    {
-        x.style.display = "none";
-        console.log("Form hidden")
-
-    }
-}
