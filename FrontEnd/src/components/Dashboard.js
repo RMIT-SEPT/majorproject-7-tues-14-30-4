@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import axios from "axios";
 import AddUser from './User/AddUser'
 import UserProfile from '../Tools/UserProfile';
 import {getUser} from '../Tools/tools_helper'
@@ -49,7 +50,9 @@ class Dashboard extends Component {
 
         return (
             <div className="dashboard">
-                <p>Welcome to the User Dashboard {UserProfile.getName()}!</p>
+                <p>Welcome to the User Dashboard {this.state.loggedUser["name"]}</p>
+
+                {/*this.state.loggedUser.map(user => <p>{user.name}</p>)*/} 
 
                 <br/>
 

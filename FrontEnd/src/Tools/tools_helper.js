@@ -3,7 +3,7 @@ import {link, Link} from "react-router-dom";
 import UserProfile from '../Tools/UserProfile';
 import axios from "axios";
 
-function isLoggedIn()
+function isLoggedInDisplay()
 {
   console.log("Checking if user is logged in")
   // UserProfile.setID("owqnfc")
@@ -43,10 +43,18 @@ export function getUser(id)
   console.log(recievedData["data"])
 }
 
-// function isLoggedIn()
-// {
-//   console.log(UserProfile)
-// }
+  // const request = axios.get(string)
+
+  // // using .then, create a new promise which extracts the data
+  // const recievedData = request.then((response) => response.data)
+
+
+  
+  // // console.log(recievedData)
+  
+  // axios.get(string).then(res => {
+  //   const data = res.data;
+  // })
 
 const funcs = {
   getUser(id) {}

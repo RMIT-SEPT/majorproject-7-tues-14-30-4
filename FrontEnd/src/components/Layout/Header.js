@@ -43,35 +43,13 @@ class Header extends React.Component
                                 Sign In
                                 </Link>
                             </p>
-
-                            {/*isLoggedIn()}
-
-                            {/*
                             <p>
-                                <Link to="/signin"
+                                <Link to="/services"
                                 className="navText">
-                                Signin
-                                </Link>
-                            </p>
-                            
-
-                             <p>
-                                <Link to="/logout"
-                                className="navText">
-                                Logout
-                                </Link>
-                            </p>
-                            */}
-                        </div>
-                        {/*<div className="navBox">
-                            <p>
-                                <Link to="/dashboard"
-                                className="navText">
-                                Dashboard
+                                Services
                                 </Link>
                             </p>
                         </div>
-                        */} 
                     </div>
                 </nav>
             </div>
