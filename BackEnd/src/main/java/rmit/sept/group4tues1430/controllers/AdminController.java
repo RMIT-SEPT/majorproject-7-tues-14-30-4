@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RestController;
 import rmit.sept.group4tues1430.model.Admin;
 import rmit.sept.group4tues1430.services.AdminService;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/admin")
+@CrossOrigin("*")
 public class AdminController {
 
     @Autowired

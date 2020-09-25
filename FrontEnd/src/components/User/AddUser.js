@@ -15,7 +15,7 @@ class AddUser extends Component {
         name: "",
         password: "",
         phone: "",
-        user_type: "",
+        user_type: "Worker",
         // address: "",
         userIdentifier: "",
     }; 
@@ -33,7 +33,7 @@ class AddUser extends Component {
             name: this.state.name,
             phone: this.state.phone,
             password: this.state.password,
-            userType: this.state.userType,
+            userType: "Worker",
             // address: this.state.address,
             userIdentifier: this.state.userIdentifier,  
         }
@@ -96,7 +96,7 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
-                */}
+                
 
                 <h4>User Type</h4>
                 <div className="form">
@@ -107,7 +107,8 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
-
+                */}
+                
                 <h4>User Identifier</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
