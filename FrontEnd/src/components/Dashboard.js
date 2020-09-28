@@ -3,11 +3,10 @@ import axios from "axios";
 import AddUser from './User/AddUser'
 import UserProfile from '../Tools/UserProfile';
 import {getUser} from '../Tools/tools_helper'
-import CreateWorker from './Admin/CreateWorker'
+import AdminPage from './Admin/AdminPage'
+import CustomerDashboard from './Customer/CustomerDashboard';
+import WorkerDashboard from './Worker/WorkerDashboard';
 
-// import {createUser, UserProfiles} from '../actions/personActions'
- 
-// import CreatePersonButton from './Persons/CreatePersonButton';
 
 class Dashboard extends Component {
 
@@ -33,11 +32,23 @@ class Dashboard extends Component {
         console.log(this.state.loggedUser)
     }
 
-    isAdmin()
+    whatType()
     {
         if (this.state.loggedUser["userType"] === "Admin")
         {
-            return <CreateWorker />
+            return <AdminPage />
+        }
+        else if (this.state.loggedUser["userType"] === "Worker")
+        {
+            return <WorkerDashboard />
+        }
+        else if (this.state.loggedUser["userType"] === "Customer")
+        {
+            return <CustomerDashboard />
+        }
+        else 
+        {
+            return <p>Please Sign in to view this page</p>
         }
     }
 
@@ -50,14 +61,16 @@ class Dashboard extends Component {
 
         return (
             <div className="dashboard">
-                <p>Welcome to the User Dashboard {this.state.loggedUser["name"]}</p>
+                {/*
+                    <p>Welcome to the User Dashboard {this.state.loggedUser["name"]}</p>
 
-                {/*this.state.loggedUser.map(user => <p>{user.name}</p>)*/} 
+                this.state.loggedUser.map(user => <p>{user.name}</p>)
 
                 <br/>
+                */} 
 
 
-                { this.isAdmin() }
+                { this.whatType() }
                 
             </div>
         )

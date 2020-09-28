@@ -6,11 +6,34 @@ import UserProfile from '../../actions/personActions';
 import {getUser} from '../../Tools/tools_helper'
 
 
-class CreateWorker extends Component {
+class AdminPage extends Component {
+
+    constructor() {
+        super();
+        this.state = {
+            loggedUser: {}
+        };
+    }
+
+    componentDidMount() {
+        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+
+        console.log(string)
+
+        axios.get(string).then(res => {
+            const loggedUser = res.data;
+            this.setState({ loggedUser });
+
+            console.log(loggedUser)
+        })
+
+        console.log(this.state.loggedUser)
+    }
 
     render() {
         return (
             <div>
+                <p>Welcome to the Admin Dashboard {this.state.loggedUser["name"]}</p>
                 <p className="addUserButton" onClick={hide}>Click here to add a user</p>
 
                 <div className="formBox" style={ { display: "none" }}>
@@ -21,7 +44,7 @@ class CreateWorker extends Component {
     }
 }
 
-export default CreateWorker;
+export default AdminPage;
 
 // Hidden Form Script
 function hide() {
