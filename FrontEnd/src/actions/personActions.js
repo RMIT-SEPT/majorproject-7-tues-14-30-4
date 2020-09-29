@@ -41,6 +41,8 @@ export function createCustomer(user)
       console.log("Customer not fine")
       // console.log(error);
     });
+
+    localStorage.setItem("LoggedUser", user["id"])
 }
 
 

@@ -26,9 +26,8 @@ class Login extends Component {
             id: this.state.id,
             password: this.state.password,  
         }
-
+        
         localStorage.setItem("LoggedUser", user["id"])
-
         this.props.history.push('/dashboard');
         
         

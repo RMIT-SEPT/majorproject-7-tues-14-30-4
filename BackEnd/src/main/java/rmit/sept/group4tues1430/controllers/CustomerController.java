@@ -8,12 +8,15 @@ import rmit.sept.group4tues1430.model.Customer;
 import org.springframework.http.HttpStatus;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.services.CustomerService;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 import rmit.sept.group4tues1430.services.MapValidationErrorService;
 
 import javax.validation.Valid;
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/api/customer")
 @CrossOrigin("*")
 public class CustomerController {

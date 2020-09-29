@@ -31,36 +31,23 @@ function isLoggedInDisplay()
 
 
 
-export function getUserName(id)
+export function getUser(id)
 {
+  console.log(id)
   const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
 
   let recievedData
 
   let promise = axios.get(string).then(recievedData => recievedData.data)
 
-  console.log(recievedData)
+  // console.log(recievedData["data"])
 
-  // console.log(recievedData.data[])
-
-  // const request = axios.get(string)
-
-  // // using .then, create a new promise which extracts the data
-  // const recievedData = request.then((response) => response.data)
-
-
-  
-  // // console.log(recievedData)
-  
-  // axios.get(string).then(res => {
-  //   const data = res.data;
-  // })
-
+  return recievedData["data"]
 }
 
 
 const funcs = {
-  getUserName(id) {}
+  getUser(id) {}
 }
 
 export default funcs;
