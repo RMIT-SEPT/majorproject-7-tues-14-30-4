@@ -15,6 +15,8 @@ public interface WorkerRepository extends CrudRepository<Worker, Long> {
 
     public Worker findByUserIdentifier(String id);
 
+    public Iterable<Worker> findWorkersByCompany_ID(String id);
+
     @Override
     Iterable<Worker> findAll();
 
