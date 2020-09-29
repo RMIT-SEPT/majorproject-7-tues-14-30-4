@@ -47,10 +47,16 @@ public class WorkerController {
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    @GetMapping("/companyWorkers/{id}")
+    @GetMapping("/byCompanyName/{name}")
+    public List<Worker> getWorkersByCompanyName(@PathVariable String name)
+    {
+        return workerService.getWorkersByCompanyName(name);
+    }
+
+    @GetMapping("/byCompanyID/{id}")
     public List<Worker> getCompanyWorkers(@PathVariable String id)
     {
-        return workerService.getWorkersByCompany_ID(id);
+        return workerService.getWorkersByCompanyID(id);
     }
 
     @GetMapping("/id/{id}")
