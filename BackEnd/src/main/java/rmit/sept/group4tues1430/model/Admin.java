@@ -10,15 +10,17 @@ import java.util.Date;
 public class Admin extends User
 {
     private boolean privileges;
+    private String company_ID;
 
     public Admin() {
     }
 
-    // public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
-    //              boolean privileges) {
-    //     super(id, firstName, lastName, password, userType, phone);
-    //     this.privileges = privileges;
-    // }
+     public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
+                  boolean privileges, String company_ID) {
+         super(id, firstName, lastName, password, userType, phone);
+         this.privileges = privileges;
+         this.company_ID = company_ID;
+     }
 
     public boolean getPrivileges() {
         return privileges;
@@ -27,4 +29,6 @@ public class Admin extends User
     public void  setPrivileges(boolean privileges) {
         this.privileges = privileges;
     }
+
+    public String getCompany_ID() { return company_ID; }
 }

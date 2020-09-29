@@ -18,7 +18,7 @@ public class Booking {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private String id;
 
     private String customerUserIdentifier;
 
@@ -31,7 +31,7 @@ public class Booking {
     public Booking() {
     }
 
-    public Booking(Long id, String customerUserIdentifier, String workerUserIdentifier,
+    public Booking(String id, String customerUserIdentifier, String workerUserIdentifier,
                    Date date, String serviceName) {
         this.id = id;
         this.customerUserIdentifier = customerUserIdentifier;
@@ -40,11 +40,11 @@ public class Booking {
         this.serviceName = serviceName;
     }
 
-    public void setId(Long id) {
+    public void setId(String id) {
         this.id = id;
     }
 
-    public Long getId() {
+    public String getId() {
         return id;
     }
 

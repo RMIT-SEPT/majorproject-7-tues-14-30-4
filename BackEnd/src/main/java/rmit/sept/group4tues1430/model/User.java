@@ -46,8 +46,8 @@ public class User {
 
     }
 
-    // public User(String id, String firstName, String lastName, String password, String userType, String phone) {
-    // }
+     public User(String id, String firstName, String lastName, String password, String userType, String phone) {
+     }
 
     public Long getId() {
         return id;
