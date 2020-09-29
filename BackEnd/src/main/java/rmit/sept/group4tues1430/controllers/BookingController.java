@@ -9,7 +9,6 @@ import rmit.sept.group4tues1430.services.MapValidationErrorService;
 import org.springframework.http.HttpStatus;
 
 import javax.validation.Valid;
-import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -35,31 +34,31 @@ public class BookingController {
         return new ResponseEntity<Booking>(booking1, HttpStatus.CREATED);
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getCustomer()
+    @GetMapping("/allBookings")
+    public Iterable<Booking> findAllBookings()
     {
-        Customer customer = bookingService.getCustomer();
-        return new ResponseEntity<Customer>(customer, HttpStatus.OK);
+        return bookingService.findAllBookings();
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getWorker()
+    @GetMapping("/id/{id}")
+    public ResponseEntity<?> getBookingByID(@PathVariable String id)
     {
-        Worker worker = bookingService.getWorker();
-        return new ResponseEntity<Worker>(worker, HttpStatus.OK);
+        Booking booking = bookingService.findBookingByID(id);
+
+        return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getDate()
+    @GetMapping("/name/{name}")
+    public ResponseEntity<?> getBookingByServiceName(@PathVariable String name)
     {
-        Date date = bookingService.getDate();
-        return new ResponseEntity<Date>(date, HttpStatus.OK);
+        Booking booking = bookingService.findBookingByServiceName(name);
+
+        return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 
-    @GetMapping("")
-    public ResponseEntity<?> getService()
-    {
-        BusinessService businessService = bookingService.getService();
-        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
+    @GetMapping("/all")
+    public List<Booking> getAllAdmins() {
+        return bookingService.getAllBookings();
     }
+
 }

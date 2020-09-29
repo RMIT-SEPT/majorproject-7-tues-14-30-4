@@ -12,11 +12,9 @@ import java.util.Date;
 @Repository
 public interface BookingRespository extends CrudRepository<Booking, Long>
 {
-    public Customer getCustomer();
+    public Iterable<Booking> findAll();
 
-    public Worker getWorker();
+    public Booking findBookingByIdentifier(String id);
 
-    public Date getDate();
-
-    public BusinessService getService();
+    public Booking findBookingByServiceName(String serviceName);
 }
