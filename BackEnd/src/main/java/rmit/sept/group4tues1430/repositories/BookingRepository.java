@@ -10,11 +10,15 @@ import rmit.sept.group4tues1430.model.Worker;
 import java.util.Date;
 
 @Repository
-public interface BookingRespository extends CrudRepository<Booking, Long>
+public interface BookingRepository extends CrudRepository<Booking, Long>
 {
     public Iterable<Booking> findAll();
 
-    public Booking findBookingByIdentifier(String id);
+    public Booking findBookingById(String id);
 
     public Booking findBookingByServiceName(String serviceName);
+
+    public Iterable<Booking> findBookingsByCustomerUserIdentifier(String customerUserIdentifier);
+
+    public Iterable<Booking> findBookingsByServiceName(String serviceName);
 }
