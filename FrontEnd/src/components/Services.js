@@ -19,8 +19,6 @@ class Services extends Component {
             this.setState({ services });
             console.log(services)
         })
-
-        
     }
     
     render() {
@@ -29,13 +27,15 @@ class Services extends Component {
             <div className="services">
                 <p>Our registered business services:</p>
                 
+
                 <ul>
                 { this.state.services.map(service => 
-                    <li> {service.name} </li>)}
+                    <li> <a href={"/service/" + service.name}> {service.name} </a></li>)}
                 </ul>
                
-            </div>
-        )
+                </div> 
+        );
+
     }
 }
 
