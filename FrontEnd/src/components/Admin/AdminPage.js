@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import AddUser from '../User/AddUser'
-import {link, Link} from "react-router-dom";
-import UserProfile from '../../actions/personActions';
-import {getUser} from '../../Tools/tools_helper'
+import { deleteUser } from '../../actions/personActions';
+import { withRouter } from 'react-router-dom';
+
+
 
 
 class AdminPage extends Component {
@@ -11,8 +12,12 @@ class AdminPage extends Component {
     constructor() {
         super();
         this.state = {
-            loggedUser: {}
+            loggedUser: {},
+            user_id_to_delete: ""
         };
+
+        this.onChange = this.onChange.bind(this);
+        this.onSubmit = this.onSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -30,6 +35,24 @@ class AdminPage extends Component {
         console.log(this.state.loggedUser)
     }
 
+    onChange(e){
+        this.setState({[e.target.name]: e.target.value});
+    }
+    onSubmit(e){
+        e.preventDefault();
+        const deletingUser = {
+            user_id_to_delete: this.state.user_id_to_delete,
+        }
+
+        // console.log(deleteUser);
+
+        deleteUser(deletingUser['user_id_to_delete']);
+
+        this.props.history.push('/dashboard');
+    }
+
+
+
     render() {
         return (
             <div>
@@ -39,12 +62,30 @@ class AdminPage extends Component {
                 <div className="formBox" style={ { display: "none" }}>
                     <AddUser/>
                 </div>
+
+                <p>You can delete a worker here</p>
+                <div>
+                <form onSubmit={this.onSubmit}>
+                    <h4>Worker Username to Delete</h4>
+                    <div className="form">
+                        <input type="text" className="form-input" 
+                        placeholder="Username"
+                        name="user_id_to_delete"
+                        value= {this.state.user_id_to_delete}
+                        onChange = {this.onChange}
+                        />
+                    </div>
+                    <p>
+                    <input type="submit" className="mainbutton" />
+                    </p>
+                </form>
+                </div>
             </div>
         )
     }
 }
 
-export default AdminPage;
+export default withRouter(AdminPage);
 
 // Hidden Form Script
 function hide() {
