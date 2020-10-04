@@ -25,7 +25,7 @@ public class BookingController {
     @PostMapping("")
     public ResponseEntity<?> createNewBooking(@Valid @RequestBody Booking booking, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap !=null)
+        if(errorMap != null)
         {
             return errorMap;
         }
@@ -48,6 +48,11 @@ public class BookingController {
         return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 
+    @GetMapping("/availableBookings/serviceName/{serviceName}")
+    public List<Booking> getAvailableBookingsByServiceName(@PathVariable String serviceName) {
+        return bookingService.getAvailableBookings(serviceName);
+    }
+
     @GetMapping("/name/{name}")
     public ResponseEntity<?> getBookingByServiceName(@PathVariable String name)
     {
@@ -57,7 +62,7 @@ public class BookingController {
     }
 
     @GetMapping("/all")
-    public List<Booking> getAllAdmins() {
+    public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
     }
 

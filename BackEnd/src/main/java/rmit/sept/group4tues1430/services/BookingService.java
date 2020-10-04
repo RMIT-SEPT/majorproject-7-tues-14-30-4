@@ -27,4 +27,15 @@ public class BookingService {
         bookingRepository.findAll().forEach(bookings::add);
         return bookings;
     }
+
+    public List<Booking> getAvailableBookings(String serviceName) {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Iterable<Booking> allBookings = bookingRepository.findBookingsByServiceName(serviceName);
+        for (Booking booking : allBookings) {
+            if (booking.getCustomerUserIdentifier() == null) {
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
 }

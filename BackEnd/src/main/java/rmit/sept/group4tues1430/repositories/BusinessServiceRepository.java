@@ -7,8 +7,6 @@ import rmit.sept.group4tues1430.model.BusinessService;
 @Repository
 public interface BusinessServiceRepository extends CrudRepository<BusinessService, Long> {
 
-//    @Override
-//    Iterable<BusinessService> findAllById(Iterable<Long> iterable);
 
     public BusinessService findByName(String name);
 

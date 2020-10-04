@@ -54,8 +54,7 @@ class Dashboard extends Component {
 
 
     render() {
-        const { isLoading, users, error } = this.state;
-
+        
         // const meh = getUser(this.state.loggedUser)
         
 

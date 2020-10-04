@@ -22,7 +22,6 @@ class Services extends Component {
     }
     
     render() {
-        const { isLoading, users, error } = this.state;
         return (
             <div className="services">
                 <p>Our registered business services:</p>
