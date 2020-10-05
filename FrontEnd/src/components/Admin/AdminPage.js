@@ -13,7 +13,7 @@ class AdminPage extends Component {
         super();
         this.state = {
             loggedUser: {},
-            user_id_to_delete: ""
+            user_id_to_delete: "",
         };
 
         this.onChange = this.onChange.bind(this);
@@ -48,12 +48,26 @@ class AdminPage extends Component {
 
         deleteUser(deletingUser['user_id_to_delete']);
 
-        this.props.history.push('/dashboard');
+
+        this.props.history.push('/dashboard/true');
+    }
+
+    wasDeleteSuccessful()
+    {
+        console.log(this.props.match.params['delete_success'])
+
+        const delete_success = this.props.match.params['delete_success']
+
+        if(delete_success)
+        {
+            console.log("wasDeleteSuccessful")
+            return <p>User Deleted</p>
+        }
     }
 
 
-
     render() {
+        const { parameter1 } = this.props.match.params;
         return (
             <div>
                 <p>Welcome to the Admin Dashboard {this.state.loggedUser["name"]}</p>
@@ -64,6 +78,7 @@ class AdminPage extends Component {
                 </div>
 
                 <p>You can delete a worker here</p>
+                {this.wasDeleteSuccessful()}
                 <div>
                 <form onSubmit={this.onSubmit}>
                     <h4>Worker Username to Delete</h4>

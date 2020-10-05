@@ -24,6 +24,7 @@ function App() {
         <div className="overall">
           <Header />
           <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/dashboard/:delete_success" component={Dashboard} />
           <Route exact path="/service/:name" component={Service} />
           <Route exact path="/booking/:id" component={Booking} />
           <Route exact path="/" component={Home} />

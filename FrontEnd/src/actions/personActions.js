@@ -48,13 +48,22 @@ export function deleteUser(id)
   if(localStorage.getItem("LoggedUser"))
   {
 
-    let loggedUser = getUser(localStorage.getItem("LoggedUser").toUpperCase())
+    // let loggedUser = getUser(id.toUpperCase())
 
-    console.log(loggedUser)
+    const string =  "http://localhost:8080/api/user/id/" + id + "/"
+
+    console.log(string)
+
+    axios.delete(string);
+
+    console.log("User deleted")
+
+    return "User Deleted"
   }
     
   else
   {
+    console.log("User not logged in")
     return "User not logged in"
   }
 
