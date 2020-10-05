@@ -16,7 +16,7 @@ export function createUser(user)
 
 export function createCustomer(user)
 {
-    axios.post("http://localhost:8080/api/user", user)
+    axios.post("http://localhost:8080/api/customer", user)
     .then(function (response) {
       console.log("Customer fine")
       // console.log(response);
