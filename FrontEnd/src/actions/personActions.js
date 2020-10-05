@@ -1,21 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS } from "./types";
-import React, { useState, useEffect, useCallback } from "react";
-
-
-// const createUser = (user, history) => async dispatch => {
-//     console.log("Adding user!")
-//     try {
-//         const res = await axios.post("http://localhost:8080/api/user", user);
-//         history.push("/dashboard");
-//     } catch (err) {
-//       console.log("ERROR")
-//         dispatch({
-//             type: GET_ERRORS,
-//             payload: err.response.data
-//         });
-//     }
-// };
+import { getUser } from "../Tools/tools_helper"
 
 export function createUser(user)
 {
@@ -45,21 +29,37 @@ export function createCustomer(user)
     localStorage.setItem("LoggedUser", user["id"])
 }
 
-
-
-export function UserProfiles(id)
+export function deleteUser(id)
 {
-  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
+  //Check if logged in user is an admin
+  if(localStorage.getItem("LoggedUser"))
+  {
 
-  axios.get(string).then(res => {
-  const data = res.data;
-  })
+    let loggedUser = getUser(localStorage.getItem("LoggedUser").toUpperCase())
+
+    console.log(loggedUser)
+  }
+    
+  else
+  {
+    return "User not logged in"
+  }
+
+    // const string =  "http://localhost:8080/api/user/id/" + id + "/"
+
+    // console.log(string)
+
+    // axios.delete(string);
+
+    // console.log("User deleted")
+
+    return "User deleted"
 }
 
 const funcs = {
-  UserProfiles() {},
   createUser() {},
-  createCustomer() {}
+  createCustomer() {},
+  deleteUser(){}
 }
 
 export default funcs;
