@@ -11,6 +11,7 @@ import Signup from './components/Session/Signup'
 import Services from './components/Services';
 import Service from './components/Service';
 import Booking from './components/Booking';
+import BookingListing from './components/BookingListing';
 
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import {Provider} from "react-redux";
@@ -24,13 +25,14 @@ function App() {
           <Header />
           <Route exact path="/dashboard" component={Dashboard} />
           <Route exact path="/service/:name" component={Service} />
-          <Route exact path="booking/:id" component={Booking} />
+          <Route exact path="/booking/:id" component={Booking} />
           <Route exact path="/" component={Home} />
           <Route exact path="/home" component={Home} />
           <Route exact path="/login" component={Login} />
           <Route exact path="/logout" component={Logout} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/services" component={Services} />
+          <Route exact path="/bookinglisting/:id" component={BookingListing} />
           <Footer/>
         </div>
       </Router>
