@@ -11,9 +11,7 @@ class Services extends Component {
             services: []
         };
 
-        
     }
-
 
     componentDidMount() {
         axios.get("http://localhost:8080/api/businessService/all/").then(res => {
@@ -24,17 +22,21 @@ class Services extends Component {
     }
     
     render() {
+        const empty = (this.state.services.length === 0)
         return (
+            
             <div className="services">
+                <br></br>
                 <p>Our registered business services:</p>
                 
-
+                {empty ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no businesses are currently registered. Please check back later.</p>) : (<p></p>)}
+                
                 <ul>
                 { this.state.services.map(service => 
                     <li> <a href={"/service/" + service.name}> {service.name} </a></li>)}
                 </ul>
-               
-                </div> 
+                <br></br>
+            </div> 
         );
 
     }
