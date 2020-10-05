@@ -48,6 +48,11 @@ public class BookingController {
         return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 
+    @GetMapping("/unavailableBookings/customerIdentifier/{customerID}")
+    public List<Booking> getBookingsByCustomerIdentifier(@PathVariable String customerID) {
+        return bookingService.getBookingsByCustomerIdentifier(customerID);
+    }
+
     @GetMapping("/availableBookings/serviceName/{serviceName}")
     public List<Booking> getAvailableBookingsByServiceName(@PathVariable String serviceName) {
         return bookingService.getAvailableBookings(serviceName);

@@ -28,6 +28,12 @@ public class BookingService {
         return bookings;
     }
 
+    public List<Booking> getBookingsByCustomerIdentifier(String customerID) {
+        List<Booking> bookings = new ArrayList<Booking>();
+        bookingRepository.findBookingsByCustomerUserIdentifier(customerID).forEach(bookings::add);
+        return bookings;
+    }
+
     public List<Booking> getAvailableBookings(String serviceName) {
         List<Booking> bookings = new ArrayList<Booking>();
         Iterable<Booking> allBookings = bookingRepository.findBookingsByServiceName(serviceName);
