@@ -29,6 +29,19 @@ export function createCustomer(user)
     localStorage.setItem("LoggedUser", user["id"])
 }
 
+export function createWorker(user)
+{
+    axios.post("http://localhost:8080/api/worker", user)
+    .then(function (response) {
+      console.log("Worker fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Worker not fine")
+      // console.log(error);
+    });
+}
+
 export function deleteUser(id)
 {
   //Check if logged in user is an admin
@@ -59,6 +72,7 @@ export function deleteUser(id)
 const funcs = {
   createUser() {},
   createCustomer() {},
+  createWorker() {},
   deleteUser(){}
 }
 

@@ -11,12 +11,13 @@ public class Admin extends User
 {
     private boolean privileges;
     private String company_ID;
+    private String company_name;
 
     public Admin() {
     }
 
      public Admin(String id, String firstName, String lastName, String password, String userType, String phone,
-                  boolean privileges, String company_ID) {
+                  boolean privileges, String company_ID, String company_name) {
          super(id, firstName, lastName, password, userType, phone);
          this.privileges = privileges;
          this.company_ID = company_ID;
@@ -31,4 +32,6 @@ public class Admin extends User
     }
 
     public String getCompany_ID() { return company_ID; }
+
+    public String getCompany_Name() { return company_name; }
 }
