@@ -149,3 +149,14 @@ html {
 {
   background-color: rgb(124, 124, 124);
 }
+
+.outside
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+.inside
+{
+  text-align: center;
+}

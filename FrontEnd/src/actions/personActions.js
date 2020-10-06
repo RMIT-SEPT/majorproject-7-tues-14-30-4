@@ -66,23 +66,27 @@ export function deleteUser(id)
     console.log("User not logged in")
     return "User not logged in"
   }
+}
 
-    // const string =  "http://localhost:8080/api/user/id/" + id + "/"
-
-    // console.log(string)
-
-    // axios.delete(string);
-
-    // console.log("User deleted")
-
-    return "User deleted"
+export function createBooking(booking)
+{
+  axios.post("http://localhost:8080/api/booking", booking)
+    .then(function (response) {
+      console.log("Booking fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Booking not fine")
+      // console.log(error);
+    });
 }
 
 const funcs = {
   createUser() {},
   createCustomer() {},
   createWorker() {},
-  deleteUser(){}
+  deleteUser(){},
+  createBooking(){}
 }
 
 export default funcs;

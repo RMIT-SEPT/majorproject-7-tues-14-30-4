@@ -1,11 +1,8 @@
 import React, { Component } from 'react'
 import axios from "axios";
 import AddUser from '../User/AddUser'
-import { deleteUser } from '../../actions/personActions';
+import { deleteUser, createBooking } from '../../actions/personActions';
 import { withRouter } from 'react-router-dom';
-
-
-
 
 class AdminPage extends Component {
 
@@ -14,10 +11,16 @@ class AdminPage extends Component {
         this.state = {
             loggedUser: {},
             user_id_to_delete: "",
+
+            workerUserIdentifier: "",
+            serviceName: "",
+            dateAndTime: null,
+
         };
 
         this.onChange = this.onChange.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        this.onDeleteSubmit = this.onDeleteSubmit.bind(this);
+        this.onBookingSubmit = this.onBookingSubmit.bind(this);
     }
 
     componentDidMount() {
@@ -38,7 +41,7 @@ class AdminPage extends Component {
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
     }
-    onSubmit(e){
+    onDeleteSubmit(e){
         e.preventDefault();
         const deletingUser = {
             user_id_to_delete: this.state.user_id_to_delete,
@@ -47,6 +50,22 @@ class AdminPage extends Component {
         // console.log(deleteUser);
 
         deleteUser(deletingUser['user_id_to_delete']);
+
+
+        this.props.history.push('/dashboard/true');
+    }
+
+    onBookingSubmit(e){
+        e.preventDefault();
+        const newBooking = {
+            workerUserIdentifier: this.state.workerUserIdentifier,
+            serviceName: this.state.serviceName,
+            dateAndTime: this.state.dateAndTime,
+        }
+
+        // console.log(deleteUser);
+
+        createBooking(newBooking);
 
 
         this.props.history.push('/dashboard/true');
@@ -77,24 +96,70 @@ class AdminPage extends Component {
                     <AddUser/>
                 </div>
 
-                <p>You can delete a worker here</p>
-                {this.wasDeleteSuccessful()}
-                <div>
-                <form onSubmit={this.onSubmit}>
-                    <h4>Worker Username to Delete</h4>
-                    <div className="form">
-                        <input type="text" className="form-input" 
-                        placeholder="Username"
-                        name="user_id_to_delete"
-                        value= {this.state.user_id_to_delete}
-                        onChange = {this.onChange}
-                        />
+                
+                <div className="outside">
+                    <div className="inside">
+                        <p>You can delete a worker here</p>
+                        {this.wasDeleteSuccessful()}
+
+                        <form onSubmit={this.onDeleteSubmit}>
+                            <h4>Worker Username to Delete</h4>
+                            <div className="form">
+                                <input type="text" className="form-input" 
+                                placeholder="Username"
+                                name="user_id_to_delete"
+                                value= {this.state.user_id_to_delete}
+                                onChange = {this.onChange}
+                                />
+                            </div>
+                            <p>
+                            <input type="submit" className="mainbutton" />
+                            </p>
+                        </form>
                     </div>
-                    <p>
-                    <input type="submit" className="mainbutton" />
-                    </p>
-                </form>
+
+                    <div className="inside">
+                        <p>You can create new bookings here</p>
+                        <form onSubmit={this.onBookingSubmit}>
+                            <h4>Worker Username</h4>
+                            <div className="form">
+                                <input type="text" className="form-input" 
+                                placeholder="Username"
+                                name="workerUserIdentifier"
+                                value= {this.state.workerUserIdentifier}
+                                onChange = {this.onChange}
+                                />
+                            </div>
+
+                            <h4>Service Name</h4>
+                            <div className="form">
+                                <input type="text" className="form-input" 
+                                placeholder="Service Name"
+                                name="serviceName"
+                                value= {this.state.serviceName}
+                                onChange = {this.onChange}
+                                />
+                            </div>
+
+                            <h4>Date and Time</h4>
+                            <div className="form">
+                                <input type="datetime-local" className="form-input" 
+                                name="dateAndTime"
+                                value= {this.state.dateAndTime}
+                                onChange = {this.onChange}
+                                />
+                            </div>
+
+                            <p>
+                            <input type="submit" className="mainbutton" />
+                            </p>
+                        </form>
+                    </div>
                 </div>
+
+                
+
+
             </div>
         )
     }
