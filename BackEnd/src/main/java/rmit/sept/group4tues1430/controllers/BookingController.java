@@ -1,4 +1,5 @@
 package rmit.sept.group4tues1430.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -7,6 +8,7 @@ import rmit.sept.group4tues1430.model.*;
 import rmit.sept.group4tues1430.services.BookingService;
 import rmit.sept.group4tues1430.services.MapValidationErrorService;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 import java.util.List;
