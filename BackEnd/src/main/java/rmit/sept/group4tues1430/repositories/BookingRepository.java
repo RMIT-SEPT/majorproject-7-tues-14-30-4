@@ -21,4 +21,6 @@ public interface BookingRepository extends CrudRepository<Booking, Long>
     public Iterable<Booking> findBookingsByCustomerUserIdentifier(String customerUserIdentifier);
 
     public Iterable<Booking> findBookingsByServiceName(String serviceName);
+
+    public Iterable<Booking> findBookingsByWorkerUserIdentifier(String workerUserIdentifier);
 }

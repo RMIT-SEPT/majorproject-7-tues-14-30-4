@@ -55,6 +55,11 @@ public class BookingController {
         return bookingService.getBookingsByCustomerIdentifier(customerID);
     }
 
+    @GetMapping("/unavailableBookings/workerIdentifier/{workerID}")
+    public List<Booking> getBookingsByWorkerIdentifier(@PathVariable String workerID) {
+        return bookingService.getBookingsByWorkerIdentifier(workerID);
+    }
+
     @GetMapping("/availableBookings/serviceName/{serviceName}")
     public List<Booking> getAvailableBookingsByServiceName(@PathVariable String serviceName) {
         return bookingService.getAvailableBookings(serviceName);

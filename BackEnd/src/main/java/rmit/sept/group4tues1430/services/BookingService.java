@@ -34,6 +34,17 @@ public class BookingService {
         return bookings;
     }
 
+    public List<Booking> getBookingsByWorkerIdentifier(String workerID) {
+        List<Booking> bookings = new ArrayList<Booking>();
+        Iterable<Booking> allBookingsForWorker = bookingRepository.findBookingsByWorkerUserIdentifier(workerID);
+        for (Booking booking : allBookingsForWorker) {
+            if (booking.getCustomerUserIdentifier() != null) {
+                bookings.add(booking);
+            }
+        }
+        return bookings;
+    }
+
     public List<Booking> getAvailableBookings(String serviceName) {
         List<Booking> bookings = new ArrayList<Booking>();
         Iterable<Booking> allBookings = bookingRepository.findBookingsByServiceName(serviceName);
