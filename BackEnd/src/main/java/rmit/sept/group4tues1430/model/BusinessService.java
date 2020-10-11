@@ -20,6 +20,8 @@ public class BusinessService {
     @NotBlank(message = "Business Service name must not be blank")
     private String name;
 
+    private String category;
+
     public BusinessService() {
     }
 
@@ -42,6 +44,14 @@ public class BusinessService {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public String getCategory() {
+        return category;
     }
 
 }

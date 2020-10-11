@@ -43,5 +43,11 @@ public class BusinessServiceService {
         businessServiceRepository.delete(serviceToDelete);
     }
 
+    public List<BusinessService> getBusinessServicesByCategory(String category) {
+        List<BusinessService> businessServices = new ArrayList<BusinessService>();
+        businessServiceRepository.findBusinessServicesByCategory(category).forEach(businessServices::add);
+        return businessServices;
+    }
+
 
 }

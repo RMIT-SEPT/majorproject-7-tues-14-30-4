@@ -32,7 +32,8 @@ class Booking extends React.Component {
             console.log(res.data);
           });
         
-        // or should it redirect browser to homepage/dashboard of user?
+        localStorage.setItem("ServiceBooked", this.state.booking["serviceName"]);
+        
         this.props.history.push(`/bookinglisting/${this.state.customerUserIdentifier}`);
     }
 
