@@ -58,6 +58,10 @@ public class BusinessServiceController {
         return businessServiceService.getAllBusinessServices();
     }
 
+    @GetMapping("/category/{category}")
+    public List<BusinessService> getBusinessServicesByCategory(@PathVariable String category) {
+        return businessServiceService.getBusinessServicesByCategory(category);
+    }
 //    @GetMapping("/allBusinessServices")
 //    public Iterable<BusinessService> findAllBusinessServices()
 //    {
