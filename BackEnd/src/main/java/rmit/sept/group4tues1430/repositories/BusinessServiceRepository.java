@@ -15,4 +15,6 @@ public interface BusinessServiceRepository extends CrudRepository<BusinessServic
     @Override
     Iterable<BusinessService> findAll();
 
+    public Iterable<BusinessService> findBusinessServicesByCategory(String category);
+
 }
