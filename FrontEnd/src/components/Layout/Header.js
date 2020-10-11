@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
-import {link, Link} from "react-router-dom";
-import UserProfile from '../../Tools/UserProfile';
+import React from 'react'
+import {Link} from "react-router-dom";
 import isLoggedIn from '../../Tools/tools_helper';
+
+import logo from '../../Images/AGME.png'
 
 
 class Header extends React.Component 
@@ -30,6 +31,10 @@ class Header extends React.Component
     render() {
         return (
             <div>
+                <div className = "logo">
+                    <img src={logo} alt="Logo" />
+                </div>
+                
                 <h1 className = "title">AGME's Online Appointment Booking System</h1>
                 {/* <p>{this.state.signedIn}</p> */}
                 

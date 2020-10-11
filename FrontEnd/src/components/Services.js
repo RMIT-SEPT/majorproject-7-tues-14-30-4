@@ -26,16 +26,16 @@ class Services extends Component {
         return (
             
             <div className="services">
-                <br></br>
-                <p>Our registered business services:</p>
+                <h3>Our registered business services:</h3>
                 
-                {empty ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no businesses are currently registered. Please check back later.</p>) : (<p></p>)}
-                
-                <ul>
-                { this.state.services.map(service => 
-                    <li> <a href={"/service/" + service.name}> {service.name} </a></li>)}
-                </ul>
-                <br></br>
+                <div className="serviceList">
+                    {empty ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no businesses are currently registered. Please check back later.</p>) : (<p></p>)}
+                    
+                    { this.state.services.map(service => <p><a href={"/service/" + service.name} className="serviceText"> {service.name} </a></p>)}
+                    <br/>
+                </div>
+                <br/>
+                <br/>
             </div> 
         );
 

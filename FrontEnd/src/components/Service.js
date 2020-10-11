@@ -50,22 +50,20 @@ class Service extends React.Component
         const emptyStaff = (this.state.workers.length === 0)
         return (
             <div className='services'>
-            <h3>Welcome to the booking page for {this.state.service["name"]}</h3>
-            <br></br>
-            <p>The staff who work for this service are: </p>
-            {emptyStaff ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no workers are currently registered for this service. Please check back later.</p>) : (<p></p>)}
-            <ul>
-                { this.state.workers.map(worker => 
-                    <li> {worker.name} </li>)}
-            </ul>
-            <br></br>
-            <p>The available bookings are: </p>
-            {emptyBookings ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no bookings are currently available. Please check back later.</p>) : (<p></p>)}
-            <ul>
-                { this.state.bookings.map(booking => 
-                    <li> <a href={"/booking/" + booking.id}> {booking.workerUserIdentifier}, available on {booking.dateAndTime}</a></li>)}
-            </ul>
-            <br></br>
+                <h3>Welcome to the booking page for {this.state.service["name"]}</h3>
+                <br></br>
+                <div className="serviceList">
+                    <p>The staff who work for this service are: </p>
+                    {emptyStaff ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no workers are currently registered for this service. Please check back later.</p>) : (<p></p>)}
+                        { this.state.workers.map(worker => 
+                            <p> {worker.name} </p>)}
+                    <br></br>
+                    <p>The available bookings are: </p>
+                    {emptyBookings ? (<p> &nbsp;&nbsp;&nbsp; Sorry, no bookings are currently available. Please check back later.</p>) : (<p></p>)}
+                        { this.state.bookings.map(booking => 
+                            <p> <a href={"/booking/" + booking.id}> {booking.workerUserIdentifier}, available on {booking.dateAndTime}</a></p>)}
+                    <br></br>
+                </div>
             </div>
         );
     }

@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
-import UserProfile from '../../Tools/UserProfile';
 import axios from "axios";
 
 class WorkerDashboard extends Component {
     constructor() {
         super();
         this.state = {
-            loggedUser: {}
+            loggedUser: {},
+            allBookings: {}
         };
     }
 
@@ -22,7 +22,15 @@ class WorkerDashboard extends Component {
             console.log(loggedUser)
         })
 
-        console.log(this.state.loggedUser)
+        const all = "http://localhost:8080/api/booking/allBookings"
+
+
+        axios.get(all).then(res => {
+            const allBookings = res.data;
+            this.setState({ allBookings });
+        })
+
+        console.log(this.state.allBookings)
     }
 
     render() {

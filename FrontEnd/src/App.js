@@ -22,19 +22,21 @@ function App() {
     <Provider store={store}>
       <Router>
         <div className="overall">
-          <Header />
-          <Route exact path="/dashboard" component={Dashboard} />
-          <Route exact path="/dashboard/:delete_success" component={Dashboard} />
-          <Route exact path="/service/:name" component={Service} />
-          <Route exact path="/booking/:id" component={Booking} />
-          <Route exact path="/" component={Home} />
-          <Route exact path="/home" component={Home} />
-          <Route exact path="/login" component={Login} />
-          <Route exact path="/logout" component={Logout} />
-          <Route exact path="/signup" component={Signup} />
-          <Route exact path="/services" component={Services} />
-          <Route exact path="/bookinglisting/:id" component={BookingListing} />
-          <Footer/>
+          <div className="overall-inside">
+            <Header />
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/dashboard/:delete_success" component={Dashboard} />
+            <Route exact path="/service/:name" component={Service} />
+            <Route exact path="/booking/:id" component={Booking} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/home" component={Home} />
+            <Route exact path="/login" component={Login} />
+            <Route exact path="/logout" component={Logout} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/services" component={Services} />
+            <Route exact path="/bookinglisting/:id" component={BookingListing} />
+            <Footer/>
+          </div>
         </div>
       </Router>
     </Provider>

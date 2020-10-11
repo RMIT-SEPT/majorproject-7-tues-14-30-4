@@ -14,14 +14,19 @@ class Home extends Component {
             <div className="dashboard">
                 <p>Welcome to AGME's Online Appointment Booking System. Here your customers can book and hire your companies
                 services easily with the click of a button</p>
+
+                <p>Don't have an account? </p>
+                <div className="signupBox">
+                    <p>Sign up&nbsp;
+                        <Link to="/signup"
+                        className="mainbutton">
+                        Here!
+                        </Link>
+                    </p>
+                </div>
                 <br/>
-                <p>Don't have an account? Sign up&nbsp;
-                    <Link to="/signup"
-                    className="mainbutton">
-                    Here!
-                    </Link>
-                </p>
-                <br/>
+
+                <p>Services that our system can link you to include: security, hairdressing services, taxi hire</p>
 
                 {/*
                 
