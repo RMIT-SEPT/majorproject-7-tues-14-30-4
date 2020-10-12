@@ -30,6 +30,18 @@ class WorkerDashboard extends Component {
         })
     }
 
+    getTime(time)
+    {
+        var d = new Date(time);
+        var offset = 11;
+
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+        var nd = new Date(utc + (3600000*offset));
+
+        return d.toLocaleString();
+    }
+
     getBookings()
     {
         if(this.state.bookingsMade.length > 0)
@@ -43,7 +55,7 @@ class WorkerDashboard extends Component {
                                 <p>Service: {booking.serviceName}</p>
                                 {console.log(booking.dateAndTime)}
                                 <p>Date: {new Date(booking.dateAndTime).toLocaleDateString()}</p>
-                                <p>Time: {new Date(booking.dateAndTime).toLocaleTimeString()}</p>
+                                <p>Time: {booking.dateAndTime}</p>
                                 <p>With: {booking.customerUserIdentifier}</p>
                             </div>
                             )}
