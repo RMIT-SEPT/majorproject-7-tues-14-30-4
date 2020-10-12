@@ -26,7 +26,7 @@
 
   ### Backend (Spring Boot)
   - build process
-    1. `mvn package` will compile a JAR file.
+    1. `./mvnw package` will compile a JAR file.
     2. `docker build -f Dockerfile -t sept:backend .` builds an image based off the Dockerfile using that JAR file created.
 
   - deployment
