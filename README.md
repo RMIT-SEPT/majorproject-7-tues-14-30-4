@@ -21,3 +21,33 @@
 ## Code documentation
 
 [Quick Start](/docs/README.md) in `docs` folder
+
+## Instructions for applciation
+
+  ### Backend (Spring Boot)
+  - build process
+    1. `mvn package` will compile a JAR file.
+    2. `docker build -f Dockerfile -t sept:backend .` builds an image based off the Dockerfile using that JAR file created.
+
+  - deployment
+    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circlci/config.yml) file.
+
+  - running backend
+    - locally
+    * `docker run -p 8080:8080 sept:backend` will use the docker image built and run it locally on your machine.
+    * 'http://localhost:8080/h2-console/' will give you access to the h2-console database GUI.
+    - cloud
+    * AWS...?
+  
+  ### Frontend (React)
+  - build process
+    1. `npm install` will install the dependencies from the local node_modules folder into package.json.
+    
+  - deployment
+    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circlci/config.yml) file.
+
+  - running frontend
+    - locally
+    * `npm start` will begin the frontend hitting 'http://localhost:3000' locally on your machine.
+    - cloud
+    * AWS...?
