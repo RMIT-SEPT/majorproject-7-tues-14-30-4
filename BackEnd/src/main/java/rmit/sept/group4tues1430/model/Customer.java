@@ -15,11 +15,11 @@ public class Customer extends User
 
     }
 
-    // public Customer(String id, String firstName, String lastName, String password, String userType, String phone, String address) {
-    //     super(id, firstName, lastName, password, userType, phone);
-    //     this.address = address;
+     public Customer(String id, String firstName, String lastName, String password, String userType, String phone, String address) {
+         super(id, firstName, lastName, password, userType, phone);
+         this.address = address;
 
-    // }
+     }
 
     public String getAddress(){
         return address;

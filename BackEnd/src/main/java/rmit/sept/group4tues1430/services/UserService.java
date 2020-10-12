@@ -1,6 +1,7 @@
 package rmit.sept.group4tues1430.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import rmit.sept.group4tues1430.exceptions.InvalidUserException;
 import rmit.sept.group4tues1430.model.User;
@@ -14,6 +15,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public User saveOrUpdateUser(User user) {
         // add business logic here
         if (user.getName().isEmpty()) {
@@ -25,6 +29,7 @@ public class UserService {
 
         try {
             user.setUserIdentifier(user.getUserIdentifier().toUpperCase());
+            user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
             return userRepository.save(user);
 
         } catch(Exception e) {

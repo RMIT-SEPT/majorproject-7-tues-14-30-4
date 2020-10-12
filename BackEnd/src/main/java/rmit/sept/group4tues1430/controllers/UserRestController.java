@@ -8,6 +8,7 @@ import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.services.MapValidationErrorService;
 import rmit.sept.group4tues1430.services.UserService;
 import org.springframework.http.HttpStatus;
+import rmit.sept.group4tues1430.validator.UserValidator;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -23,8 +24,14 @@ public class UserRestController {
     @Autowired
     private MapValidationErrorService mapValidationErrorService;
 
+    @Autowired
+    private UserValidator userValidator;
+
     @PostMapping("")
     public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
+        //validate password
+        userValidator.validate(user, result);
+
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
         if(errorMap != null) {
             return errorMap;
