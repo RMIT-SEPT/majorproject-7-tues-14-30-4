@@ -42,7 +42,7 @@ class WorkerDashboard extends Component {
                             <div className="booking">
                                 <p>Service: {booking.serviceName}</p>
                                 {console.log(booking.dateAndTime)}
-                                <p>Date: {new Date(booking.dateAndTime + 'AEDT').toLocaleDateString()}</p>
+                                <p>Date: {new Date(booking.dateAndTime).toLocaleDateString()}</p>
                                 <p>Time: {new Date(booking.dateAndTime).toLocaleTimeString()}</p>
                                 <p>With: {booking.customerUserIdentifier}</p>
                             </div>
