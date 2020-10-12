@@ -44,6 +44,7 @@ class Login extends Component {
                 <input type="text" className="form-input" 
                 placeholder="Username" 
                 name="id"
+                required
                 value= {this.state.id}
                 onChange = {this.onChange}
                 />    
@@ -54,6 +55,7 @@ class Login extends Component {
                 <input type="text" className="form-input" 
                 placeholder="Password"
                 name="password"
+                required
                 value= {this.state.password}
                 onChange = {this.onChange}
                     />

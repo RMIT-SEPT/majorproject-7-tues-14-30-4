@@ -1,7 +1,9 @@
 package rmit.sept.group4tues1430.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import rmit.sept.group4tues1430.exceptions.InvalidUserException;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.model.Worker;
 import rmit.sept.group4tues1430.repositories.WorkerRepository;
@@ -15,8 +17,30 @@ public class WorkerService {
     @Autowired
     private WorkerRepository workerRepository;
 
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public Worker saveOrUpdateWorker(Worker worker) {
-        return workerRepository.save(worker);
+
+        if(worker.getName().isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
+        if(worker.getUserType().isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
+
+        try {
+            worker.setUserIdentifier(worker.getUserIdentifier().toUpperCase());
+            worker.setPassword(bCryptPasswordEncoder.encode(worker.getPassword()));
+
+            return workerRepository.save(worker);
+        } catch (Exception e)
+        {
+            throw new InvalidUserException("The Worker Identifier " +
+                    worker.getUserIdentifier().toUpperCase() + " already exists.");
+        }
     }
 
     public Worker getWorkerByName(String name) {

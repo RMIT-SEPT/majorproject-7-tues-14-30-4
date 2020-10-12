@@ -1,7 +1,9 @@
 package rmit.sept.group4tues1430.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+import rmit.sept.group4tues1430.exceptions.InvalidUserException;
 import rmit.sept.group4tues1430.model.Customer;
 import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.repositories.CustomerRepository;
@@ -15,9 +17,27 @@ public class CustomerService {
     @Autowired
     private CustomerRepository customerRepository;
 
-    public Customer saveOrUpdateUser(Customer customer) {
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-        return customerRepository.save(customer);
+    public Customer saveOrUpdateUser(Customer customer) {
+        if(customer.getName().isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
+        if(customer.getUserType().isEmpty())
+        {
+            throw new IllegalArgumentException();
+        }
+
+        try {
+            customer.setUserIdentifier(customer.getUserIdentifier().toUpperCase());
+            customer.setPassword(bCryptPasswordEncoder.encode(customer.getPassword()));
+            return customerRepository.save(customer);
+        } catch (Exception e) {
+            throw new InvalidUserException("The Customer Identifier " +
+                    customer.getUserIdentifier().toUpperCase() + " already exists.");
+        }
     }
 
     public Customer getCustomerByName(String name) {
