@@ -6,29 +6,73 @@ class WorkerDashboard extends Component {
     constructor() {
         super();
         this.state = {
-            loggedUser: {}
+            loggedUser: {},
+            bookingsMade: []
         };
     }
 
     componentDidMount() {
-        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        const getUserString =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
 
-        console.log(string)
 
-        axios.get(string).then(res => {
+        axios.get(getUserString).then(res => {
             const loggedUser = res.data;
             this.setState({ loggedUser });
-
-            console.log(loggedUser)
         })
 
-        console.log(this.state.loggedUser)
+        const getBookingString = "http://localhost:8080/api/booking/unavailableBookings/workerIdentifier/" + localStorage.getItem("LoggedUser").toUpperCase()
+
+        console.log(getBookingString)
+
+        axios.get(getBookingString).then(res => {
+            const bookingsMade = res.data;
+            this.setState({ bookingsMade });
+        })
     }
+
+    getTime(time)
+    {
+        var d = new Date(time);
+        var offset = 11;
+
+        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
+
+        var nd = new Date(utc + (3600000*offset));
+
+        return d.toLocaleString();
+    }
+
+    getBookings()
+    {
+        if(this.state.bookingsMade.length > 0)
+        {   
+            return (
+                <div style={{textAlign: "center"}}>
+                    <p>These are the services you are currently rostered to work</p>
+                    <div className="bookings">
+                        { this.state.bookingsMade.map(booking => 
+                            <div className="booking">
+                                <p>Service: {booking.serviceName}</p>
+                                {console.log(booking.dateAndTime)}
+                                <p>Date: {new Date(booking.dateAndTime).toLocaleDateString()}</p>
+                                <p>Time: {booking.dateAndTime}</p>
+                                <p>With: {booking.customerUserIdentifier}</p>
+                            </div>
+                            )}
+                    </div>
+                </div>
+            )
+        }
+    }
+
+
 
     render() {
         return (
             <div>
                 <p>Welcome to the Worker Dashboard {this.state.loggedUser["name"]}</p>
+
+                {(this.state.bookingsMade.length > 0) ? this.getBookings() : <p>You are not currently rostered to work at the moment or a customer has not booked a service with you</p>}
             </div>
         );
     }

@@ -48,6 +48,18 @@ public class WorkerService {
         return workerRepository.findByName(name);
     }
 
+    public List<Worker> getWorkersByCompanyID(String id) {
+        List<Worker> workers = new ArrayList<Worker>();
+        workerRepository.findWorkersByCompanyID(id).forEach(workers::add);
+        return workers;
+    }
+
+    public List<Worker> getWorkersByCompanyName(String name) {
+        List<Worker> workers = new ArrayList<Worker>();
+        workerRepository.findWorkersByCompanyName(name).forEach(workers::add);
+        return workers;
+    }
+
     public Worker getWorkerByID(String id) {
         return workerRepository.findByUserIdentifier(id);
     }

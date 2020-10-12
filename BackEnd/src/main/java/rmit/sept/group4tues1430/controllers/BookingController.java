@@ -1,4 +1,5 @@
 package rmit.sept.group4tues1430.controllers;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -7,6 +8,7 @@ import rmit.sept.group4tues1430.model.*;
 import rmit.sept.group4tues1430.services.BookingService;
 import rmit.sept.group4tues1430.services.MapValidationErrorService;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import javax.validation.Valid;
 import java.util.List;
@@ -25,7 +27,7 @@ public class BookingController {
     @PostMapping("")
     public ResponseEntity<?> createNewBooking(@Valid @RequestBody Booking booking, BindingResult result) {
         ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
-        if(errorMap !=null)
+        if(errorMap != null)
         {
             return errorMap;
         }
@@ -48,6 +50,21 @@ public class BookingController {
         return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 
+    @GetMapping("/unavailableBookings/customerIdentifier/{customerID}")
+    public List<Booking> getBookingsByCustomerIdentifier(@PathVariable String customerID) {
+        return bookingService.getBookingsByCustomerIdentifier(customerID);
+    }
+
+    @GetMapping("/unavailableBookings/workerIdentifier/{workerID}")
+    public List<Booking> getBookingsByWorkerIdentifier(@PathVariable String workerID) {
+        return bookingService.getBookingsByWorkerIdentifier(workerID);
+    }
+
+    @GetMapping("/availableBookings/serviceName/{serviceName}")
+    public List<Booking> getAvailableBookingsByServiceName(@PathVariable String serviceName) {
+        return bookingService.getAvailableBookings(serviceName);
+    }
+
     @GetMapping("/name/{name}")
     public ResponseEntity<?> getBookingByServiceName(@PathVariable String name)
     {
@@ -57,7 +74,7 @@ public class BookingController {
     }
 
     @GetMapping("/all")
-    public List<Booking> getAllAdmins() {
+    public List<Booking> getAllBookings() {
         return bookingService.getAllBookings();
     }
 
