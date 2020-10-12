@@ -175,13 +175,21 @@ html {
 .bookings
 {
   text-align: center;
-  display: flex;
+  /* display: flex;
   justify-content: space-around;
+  width: 80%; */
+  border: 2px solid #ffc400;  
 }
 
 .booking
 {
   text-align: left;
+  min-width: 22%;
+  display: inline-block;
+  /* display: inline-block; */
+  border: 2px solid #d6a400;
+  margin: 5px;
+  padding: 5px;
 }
 
 .logo

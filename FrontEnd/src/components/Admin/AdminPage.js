@@ -52,7 +52,7 @@ class AdminPage extends Component {
         deleteUser(deletingUser['user_id_to_delete']);
 
 
-        this.props.history.push('/dashboard/true');
+        this.props.history.push('/dashboard');
     }
 
     onBookingSubmit(e){
@@ -68,20 +68,7 @@ class AdminPage extends Component {
         createBooking(newBooking);
 
 
-        this.props.history.push('/dashboard/true');
-    }
-
-    wasDeleteSuccessful()
-    {
-        console.log(this.props.match.params['delete_success'])
-
-        const delete_success = this.props.match.params['delete_success']
-
-        if(delete_success)
-        {
-            console.log("wasDeleteSuccessful")
-            return <p>User Deleted</p>
-        }
+        this.props.history.push('/dashboard');
     }
 
 
@@ -100,7 +87,6 @@ class AdminPage extends Component {
                 <div className="outside">
                     <div className="inside">
                         <p>You can delete a worker here</p>
-                        {this.wasDeleteSuccessful()}
 
                         <form onSubmit={this.onDeleteSubmit}>
                             <h4>Worker Username to Delete</h4>
