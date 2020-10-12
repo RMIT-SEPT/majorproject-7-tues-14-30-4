@@ -30,7 +30,7 @@
     2. `docker build -f Dockerfile -t sept:backend .` builds an image based off the Dockerfile using that JAR file created.
 
   - deployment
-    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circlci/config.yml) file.
+    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circleci/config.yml) file.
 
   - running backend
     - locally
@@ -44,7 +44,7 @@
     1. `npm install` will install the dependencies from the local node_modules folder into package.json.
     
   - deployment
-    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circlci/config.yml) file.
+    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circleci/config.yml) file.
 
   - running frontend
     - locally
