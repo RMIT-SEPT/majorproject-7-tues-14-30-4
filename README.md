@@ -44,10 +44,11 @@
     1. `npm install` will install the dependencies from the local node_modules folder into package.json.
     
   - deployment
-    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to AWS as specified in the [config.yml](.circleci/config.yml) file.
+    - After pushing your changes to git circleCi will run all unit, integration and system tests for the backend and frontend. If these tests pass then     circleCi will build and push an image to an AWS ECR as specified in the [config.yml](.circleci/config.yml) file.
+    - The front-end image has been deployed using AWS ECS
 
   - running frontend
     - locally
     * `npm start` will begin the frontend hitting 'http://localhost:3000' locally on your machine.
     - cloud
-    * AWS...?
+    * The front-end is accessible from: http://septelb-507656932.us-east-1.elb.amazonaws.com
