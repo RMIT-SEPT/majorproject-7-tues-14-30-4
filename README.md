@@ -37,7 +37,8 @@
     * `docker run -p 8080:8080 sept:backend` will use the docker image built and run it locally on your machine.
     * 'http://localhost:8080/h2-console/' will give you access to the h2-console database GUI.
     - cloud
-    * AWS...?
+    * Deployed via AWS ECS (from the image pushed to ECR when pushes to master branch occur)
+    * Access at: http://52.90.206.228:8080/h2-console/
   
   ### Frontend (React)
   - build process
@@ -51,4 +52,7 @@
     - locally
     * `npm start` will begin the frontend hitting 'http://localhost:3000' locally on your machine.
     - cloud
-    * The front-end is accessible from: http://septelb-507656932.us-east-1.elb.amazonaws.com
+    * The front-end is accessible from: http://18.215.117.129:32773
+    * Note: Some data has been preloaded into the database on the cloud.  Services include Dentist, Teeth Whitening, Cross-Fit Training and Strength Training.
+    * Current users (username, password) include: (ADMIN, password), (CUSTOMER, password), (JANE, password), (JILL, password), (TOM, password), (JOHN, password)
+    * JANE, JILL, TOM and JOHN are workers in the system 
