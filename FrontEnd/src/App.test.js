@@ -9,7 +9,7 @@ test('renders Home link', () => {
   expect(linkElement).toBeInTheDocument();
 });
 
-test('renders required information', () => {
+test('renders required information about website', () => {
     const { getByText } = render(<App />);
     const linkElement = getByText(/Welcome to AGME's Online Appointment Booking System/i);
     expect(linkElement).toBeInTheDocument();
