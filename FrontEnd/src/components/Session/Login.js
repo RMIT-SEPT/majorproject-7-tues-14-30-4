@@ -52,7 +52,7 @@ class Login extends Component {
 
             <h4>Password</h4>
             <div className="form">
-                <input type="text" className="form-input" 
+                <input type="password" className="form-input" 
                 placeholder="Password"
                 name="password"
                 required
@@ -64,15 +64,6 @@ class Login extends Component {
               <input type="submit" className="mainbutton" />
             </p>
           </form>
-          
-          {/*
-            <p>
-              <Link to="/"
-                className="navText">
-                Home
-              </Link>
-            </p>
-          */}
         </div>
       </div>
     )

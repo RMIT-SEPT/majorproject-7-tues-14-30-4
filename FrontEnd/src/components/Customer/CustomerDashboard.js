@@ -12,7 +12,7 @@ class CustomerDashboard extends Component {
     }
 
     componentDidMount() {
-        const getUserString =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        const getUserString =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser") + "/"
 
 
         axios.get(getUserString).then(res => {
@@ -20,7 +20,7 @@ class CustomerDashboard extends Component {
             this.setState({ loggedUser });
         })
 
-        const getBookingString = "http://localhost:8080/api/booking/unavailableBookings/customerIdentifier/" + localStorage.getItem("LoggedUser").toUpperCase()
+        const getBookingString = "http://localhost:8080/api/booking/unavailableBookings/customerIdentifier/" + localStorage.getItem("LoggedUser")
 
         console.log(getBookingString)
 

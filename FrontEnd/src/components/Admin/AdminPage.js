@@ -24,7 +24,7 @@ class AdminPage extends Component {
     }
 
     componentDidMount() {
-        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser") + "/"
 
         console.log(string)
 
