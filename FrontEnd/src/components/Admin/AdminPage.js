@@ -24,7 +24,7 @@ class AdminPage extends Component {
     }
 
     componentDidMount() {
-        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser") + "/"
 
         console.log(string)
 
@@ -77,7 +77,7 @@ class AdminPage extends Component {
         return (
             <div>
                 <p>Welcome to the Admin Dashboard {this.state.loggedUser["name"]}</p>
-                <p className="addUserButton" onClick={hide}>Click here to add a user</p>
+                <p className="addUserButton" onClick={hide}>Click here to add a new employee/worker</p>
 
                 <div className="formBox" style={ { display: "none" }}>
                     <AddUser/>

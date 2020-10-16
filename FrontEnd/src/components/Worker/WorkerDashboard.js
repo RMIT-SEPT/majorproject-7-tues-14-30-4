@@ -12,7 +12,7 @@ class WorkerDashboard extends Component {
     }
 
     componentDidMount() {
-        const getUserString =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        const getUserString =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser")+ "/"
 
 
         axios.get(getUserString).then(res => {
@@ -20,7 +20,7 @@ class WorkerDashboard extends Component {
             this.setState({ loggedUser });
         })
 
-        const getBookingString = "http://localhost:8080/api/booking/unavailableBookings/workerIdentifier/" + localStorage.getItem("LoggedUser").toUpperCase()
+        const getBookingString = "http://localhost:8080/api/booking/unavailableBookings/workerIdentifier/" + localStorage.getItem("LoggedUser")
 
         console.log(getBookingString)
 
@@ -28,18 +28,6 @@ class WorkerDashboard extends Component {
             const bookingsMade = res.data;
             this.setState({ bookingsMade });
         })
-    }
-
-    getTime(time)
-    {
-        var d = new Date(time);
-        var offset = 11;
-
-        var utc = d.getTime() + (d.getTimezoneOffset() * 60000);
-
-        var nd = new Date(utc + (3600000*offset));
-
-        return d.toLocaleString();
     }
 
     getBookings()

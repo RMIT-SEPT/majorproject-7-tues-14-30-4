@@ -36,8 +36,8 @@ class AddUser extends Component {
             password: this.state.password,
             userType: "Worker",
             userIdentifier: this.state.userIdentifier,
-            company_id: this.state.company_id,
-            company_name: this.state.company_name
+            companyID: this.state.company_id,
+            companyName: this.state.company_name
         }
 
         console.log(newUser);

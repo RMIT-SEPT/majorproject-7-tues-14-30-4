@@ -6,6 +6,8 @@ import {getUser} from '../Tools/tools_helper'
 import AdminPage from './Admin/AdminPage'
 import CustomerDashboard from './Customer/CustomerDashboard';
 import WorkerDashboard from './Worker/WorkerDashboard';
+import { Redirect } from 'react-router';
+import {Link} from "react-router-dom";
 
 
 class Dashboard extends Component {
@@ -19,7 +21,7 @@ class Dashboard extends Component {
 
     componentDidMount() {
         if (localStorage.getItem("LoggedUser")){
-            const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+            const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser") + "/"
 
             console.log(string)
 
@@ -38,15 +40,48 @@ class Dashboard extends Component {
     {
         if (this.state.loggedUser["userType"] === "Admin")
         {
-            return <AdminPage />
+            return (
+                <div>
+                    <AdminPage />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                     {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
         }
         else if (this.state.loggedUser["userType"] === "Worker")
         {
-            return <WorkerDashboard />
+            return (
+                <div>
+                    <WorkerDashboard />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                     {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
         }
         else if (this.state.loggedUser["userType"] === "Customer")
         {
-            return <CustomerDashboard />
+            return (
+                <div>
+                    <CustomerDashboard />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                    {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
         }
         else 
         {
@@ -54,6 +89,15 @@ class Dashboard extends Component {
         }
     }
 
+    logout()
+     {
+
+          if(localStorage.getItem("LoggedUser"))
+         {
+         localStorage.removeItem("LoggedUser");
+         return <Redirect to="/" push/>
+         }
+     }
 
     render() {
         return (

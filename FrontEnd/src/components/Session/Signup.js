@@ -23,7 +23,16 @@ class Signup extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     
         }
-
+    
+    componentWillReceiveProps(nextProps) {
+        if(nextProps.errors) {
+   
+             this.setState ({
+                errors: nextProps.errors
+            });
+        }
+    }
+    
     onChange(e){
         this.setState({[e.target.name]: e.target.value});
     }
@@ -60,6 +69,7 @@ class Signup extends Component {
                         <input type="text" className="form-input" 
                         placeholder="Name"
                         name="name"
+                        required
                         value= {this.state.name}
                         onChange = {this.onChange}
                             />
@@ -70,6 +80,7 @@ class Signup extends Component {
                         <input type="text" className="form-input" 
                         placeholder="Password"
                         name="password"
+                        required
                         value= {this.state.password}
                         onChange = {this.onChange}
                             />
@@ -100,6 +111,7 @@ class Signup extends Component {
                         <input type="text" className="form-input" 
                         placeholder="User Identifier"
                         name="userIdentifier"
+                        required
                         value= {this.state.userIdentifier}
                         onChange = {this.onChange}
                             />

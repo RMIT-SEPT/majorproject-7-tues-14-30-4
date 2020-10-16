@@ -34,7 +34,7 @@ function isLoggedInDisplay()
 export function getUser(id)
 {
   // console.log(id)
-  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
+  const string = "http://localhost:8080/api/user/id/";
 
   let recievedData = ""
 

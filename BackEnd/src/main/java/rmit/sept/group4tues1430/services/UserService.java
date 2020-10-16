@@ -24,12 +24,12 @@ public class UserService {
         }
 
         try {
-            user.setUserIdentifier(user.getUserIdentifier().toUpperCase());
+            user.setUserIdentifier(user.getUserIdentifier());
             return userRepository.save(user);
 
         } catch(Exception e) {
             throw new InvalidUserException("The User Identifier " +
-                    user.getUserIdentifier().toUpperCase() + " already exists.");
+                    user.getUserIdentifier() + " already exists.");
         }
     }
 
