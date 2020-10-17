@@ -52,7 +52,9 @@
     - locally
     * `npm start` will begin the frontend hitting 'http://localhost:3000' locally on your machine.
     - cloud
-    * The front-end is accessible from: http://18.215.117.129:32773
+    * The front-end is accessible from: http://18.215.117.129:32774
     * Note: Some data has been preloaded into the database on the cloud.  Services include Dentist, Teeth Whitening, Cross-Fit Training and Strength Training.
     * Current users (username, password) include: (ADMIN, password), (CUSTOMER, password), (JANE, password), (JILL, password), (TOM, password), (JOHN, password)
-    * JANE, JILL, TOM and JOHN are workers in the system 
+    * You may login to the system using any of these credentials, or create a new customer account from the home page.
+    * (JANE, JILL, TOM and JOHN are workers in the system)
+    * If our AWS credits run out before you can view this deployed product, screenshots of the AWS cluster structure and deployed product can be seen in Deployment_Screenshots, within our Milestone 3 folder in Docs.  
