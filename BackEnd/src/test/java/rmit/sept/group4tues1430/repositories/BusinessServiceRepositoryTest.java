@@ -80,8 +80,6 @@ public class BusinessServiceRepositoryTest {
 
         assertEquals("Size of returned collection is not as expected", 2, count);
     }
-//  Test findById()?
-
 
 
 }

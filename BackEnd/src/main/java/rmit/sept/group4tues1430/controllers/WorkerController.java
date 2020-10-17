@@ -2,21 +2,37 @@ package rmit.sept.group4tues1430.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import rmit.sept.group4tues1430.model.Customer;
 import org.springframework.http.HttpStatus;
+import rmit.sept.group4tues1430.model.User;
 import rmit.sept.group4tues1430.model.Worker;
-import rmit.sept.group4tues1430.services.CustomerService;
+import rmit.sept.group4tues1430.services.MapValidationErrorService;
 import rmit.sept.group4tues1430.services.WorkerService;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/worker")
+@CrossOrigin("*")
 public class WorkerController {
     @Autowired
     private WorkerService workerService;
 
+    @Autowired
+    private MapValidationErrorService mapValidationErrorService;
+
+    @PostMapping("")
+    public ResponseEntity<?> createNewWorker(@Valid @RequestBody Worker worker, BindingResult result) {
+        ResponseEntity<?> errorMap = mapValidationErrorService.MapValidationService(result);
+        if(errorMap != null) {
+            return errorMap;
+        }
+
+        Worker worker1 = workerService.saveOrUpdateWorker((worker));
+        return new ResponseEntity<User>(worker1, HttpStatus.CREATED);
+    }
     @GetMapping("/all")
     public List<Worker> getAllWorkers()
     {
@@ -31,6 +47,18 @@ public class WorkerController {
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
+    @GetMapping("/byCompanyName/{name}")
+    public List<Worker> getWorkersByCompanyName(@PathVariable String name)
+    {
+        return workerService.getWorkersByCompanyName(name);
+    }
+
+    @GetMapping("/byCompanyID/{id}")
+    public List<Worker> getCompanyWorkers(@PathVariable String id)
+    {
+        return workerService.getWorkersByCompanyID(id);
+    }
+
     @GetMapping("/id/{id}")
     public ResponseEntity<?>  getWorkerByID(@PathVariable String id)
     {
@@ -38,12 +66,6 @@ public class WorkerController {
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    // I think we don't need this as it is similar to getAllWorkers()?
-//    @GetMapping("/allWorkers")
-//    public Iterable<Worker> findAllWorkers()
-//    {
-//        return workerService.findAllWorkers();
-//    }
 
     @DeleteMapping("/id/{id}")
     public void deleteWorkerByIdentifier(@PathVariable String id)
@@ -51,10 +73,4 @@ public class WorkerController {
         workerService.deleteWorkerByIdentifier(id);
     }
 
-//    @GetMapping("/{worker}")
-//    public  ResponseEntity<?> saveOrUpdateWorker(Worker worker)
-//    {
-//        Worker worker1 = workerService.saveOrUpdateWorker(worker);
-//        return new ResponseEntity<Worker>(worker1, HttpStatus.OK);
-//    }
 }

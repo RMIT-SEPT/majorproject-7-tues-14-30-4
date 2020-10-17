@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {createUser} from '../../actions/personActions'
+import { createWorker } from '../../actions/personActions'
 import { withRouter } from 'react-router-dom';
 
 import UserProfile from '../../Tools/UserProfile';
@@ -15,9 +15,10 @@ class AddUser extends Component {
         name: "",
         password: "",
         phone: "",
-        user_type: "",
-        // address: "",
+        user_type: "Worker",
         userIdentifier: "",
+        company_id: "",
+        company_name: ""
     }; 
     this.onChange = this.onChange.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
@@ -33,21 +34,23 @@ class AddUser extends Component {
             name: this.state.name,
             phone: this.state.phone,
             password: this.state.password,
-            userType: this.state.userType,
-            // address: this.state.address,
-            userIdentifier: this.state.userIdentifier,  
+            userType: "Worker",
+            userIdentifier: this.state.userIdentifier,
+            companyID: this.state.company_id,
+            companyName: this.state.company_name
         }
 
         console.log(newUser);
 
-        createUser(newUser);
+        // createUser(newUser);
+        createWorker(newUser);
 
         // UserProfiles(newUser['userIdentifier']);
 
         // UserProfile.setName(newUser["name"]);
         // console.log(UserProfile.getName());
 
-        this.props.history.push(`/dashboard/${newUser["userIdentifier"]}`);
+        this.props.history.push("/dashboard");
         // window.location.reload();
         // UserProfiles(1);
     }
@@ -86,34 +89,35 @@ class AddUser extends Component {
                     onChange = {this.onChange}
                         />
                 </div>
-                {/*
-                <h4>Address</h4>
-                <div className="form">
-                    <input type="text" className="form-input" 
-                    placeholder="Address"
-                    name="address"
-                    value= {this.state.address}
-                    onChange = {this.onChange}
-                        />
-                </div>
-                */}
-
-                <h4>User Type</h4>
-                <div className="form">
-                    <input type="text" className="form-input" 
-                    placeholder="User Type"
-                    name="userType"
-                    value= {this.state.userType}
-                    onChange = {this.onChange}
-                        />
-                </div>
-
+                
                 <h4>User Identifier</h4>
                 <div className="form">
                     <input type="text" className="form-input" 
                     placeholder="User Identifier"
                     name="userIdentifier"
                     value= {this.state.userIdentifier}
+                    onChange = {this.onChange}
+                        />
+                </div>
+
+
+                <h4>Company ID</h4>
+                <div className="form">
+                    <input type="text" className="form-input" 
+                    placeholder="Company ID"
+                    name="company_id"
+                    value= {this.state.company_id}
+                    onChange = {this.onChange}
+                        />
+                </div>
+
+
+                <h4>Company Name</h4>
+                <div className="form">
+                    <input type="text" className="form-input" 
+                    placeholder="Company Name"
+                    name="company_name"
+                    value= {this.state.company_name}
                     onChange = {this.onChange}
                         />
                 </div>

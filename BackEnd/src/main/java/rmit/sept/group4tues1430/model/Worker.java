@@ -10,20 +10,23 @@ public class Worker extends User
 {
     private String days;
     private String times;
-    private String company_ID;
+    private String companyID;
+    private String companyName;
+    private String[] availableDays;
 
     public Worker() {
 
     }
 
-    // public Worker(String id, String firstName, String lastName, String password, String userType, String phone,
-    //               String days, String times, String company_ID)
-    // {
-    //     super(id, firstName, lastName, password, userType, phone);
-    //     this.days = days;
-    //     this.times = times;
-    //     this.company_ID = company_ID;
-    // }
+     public Worker(String id, String firstName, String lastName, String password, String userType, String phone,
+                   String days, String times, String companyID, String[] availableDays)
+     {
+         super(id, firstName, lastName, password, userType, phone);
+         this.days = days;
+         this.times = times;
+         this.companyID = companyID;
+         this.availableDays = availableDays;
+     }
 
     public String getDays(){
         return days;
@@ -31,6 +34,14 @@ public class Worker extends User
 
     public void setDays(String days){
         this.days = days;
+    }
+
+    public String getCompanyName() {
+        return this.companyName;
+    }
+
+    public void setCompanyName(String companyName) {
+        this.companyName = companyName;
     }
 
     public String getTimes(){
@@ -43,12 +54,15 @@ public class Worker extends User
 
     public String getCompany_ID()
     {
-        return company_ID;
+        return companyID;
     }
 
     public void setCompany_ID(String company_ID)
     {
-        this.company_ID = company_ID;
+        this.companyID = company_ID;
     }
 
+    public String[] getAvailableDays() { return availableDays; }
+
+    public void setAvailableDays(String[] availableDays) { this.availableDays = availableDays; }
 }

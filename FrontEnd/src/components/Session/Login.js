@@ -26,9 +26,8 @@ class Login extends Component {
             id: this.state.id,
             password: this.state.password,  
         }
-
+        
         localStorage.setItem("LoggedUser", user["id"])
-
         this.props.history.push('/dashboard');
         
         
@@ -45,6 +44,7 @@ class Login extends Component {
                 <input type="text" className="form-input" 
                 placeholder="Username" 
                 name="id"
+                required
                 value= {this.state.id}
                 onChange = {this.onChange}
                 />    
@@ -55,6 +55,7 @@ class Login extends Component {
                 <input type="text" className="form-input" 
                 placeholder="Password"
                 name="password"
+                required
                 value= {this.state.password}
                 onChange = {this.onChange}
                     />
@@ -64,14 +65,6 @@ class Login extends Component {
             </p>
           </form>
           
-          {/*
-            <p>
-              <Link to="/"
-                className="navText">
-                Home
-              </Link>
-            </p>
-          */}
         </div>
       </div>
     )

@@ -1,21 +1,5 @@
 import axios from "axios";
-import { GET_ERRORS } from "./types";
-import React, { useState, useEffect, useCallback } from "react";
-
-
-// const createUser = (user, history) => async dispatch => {
-//     console.log("Adding user!")
-//     try {
-//         const res = await axios.post("http://localhost:8080/api/user", user);
-//         history.push("/dashboard");
-//     } catch (err) {
-//       console.log("ERROR")
-//         dispatch({
-//             type: GET_ERRORS,
-//             payload: err.response.data
-//         });
-//     }
-// };
+import { getUser } from "../Tools/tools_helper"
 
 export function createUser(user)
 {
@@ -32,7 +16,7 @@ export function createUser(user)
 
 export function createCustomer(user)
 {
-    axios.post("http://localhost:8080/api/user", user)
+    axios.post("http://localhost:8080/api/customer", user)
     .then(function (response) {
       console.log("Customer fine")
       // console.log(response);
@@ -41,23 +25,68 @@ export function createCustomer(user)
       console.log("Customer not fine")
       // console.log(error);
     });
+
+    localStorage.setItem("LoggedUser", user["id"])
 }
 
-
-
-export function UserProfiles(id)
+export function createWorker(user)
 {
-  const string = "http://localhost:8080/api/user/id/" + id.toUpperCase();
+    axios.post("http://localhost:8080/api/worker", user)
+    .then(function (response) {
+      console.log("Worker fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Worker not fine")
+      // console.log(error);
+    });
+}
 
-  axios.get(string).then(res => {
-  const data = res.data;
-  })
+export function deleteUser(id)
+{
+  //Check if logged in user is an admin
+  if(localStorage.getItem("LoggedUser"))
+  {
+
+    // let loggedUser = getUser(id.toUpperCase())
+
+    const string =  "http://localhost:8080/api/user/id/" + id + "/"
+
+    console.log(string)
+
+    axios.delete(string);
+
+    console.log("User deleted")
+
+    return "User Deleted"
+  }
+    
+  else
+  {
+    console.log("User not logged in")
+    return "User not logged in"
+  }
+}
+
+export function createBooking(booking)
+{
+  axios.post("http://localhost:8080/api/booking", booking)
+    .then(function (response) {
+      console.log("Booking fine")
+      // console.log(response);
+    })
+    .catch(function (error) {
+      console.log("Booking not fine")
+      // console.log(error);
+    });
 }
 
 const funcs = {
-  UserProfiles() {},
   createUser() {},
-  createCustomer() {}
+  createCustomer() {},
+  createWorker() {},
+  deleteUser(){},
+  createBooking(){}
 }
 
 export default funcs;

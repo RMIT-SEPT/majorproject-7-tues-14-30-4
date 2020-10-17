@@ -3,6 +3,11 @@ import UserProfile from '../../Tools/UserProfile';
 
 class Logout extends Component {
     // UserProfile.logout();
+    // if(localStorage.getItem("LoggedUser")
+    // {
+    //     localStorage.removeItem("LoggedUser")
+    // }
+
     render() {
         return (
             <div>

@@ -36,7 +36,7 @@ html {
   
 .navBar
 {
-  border-top: 2px solid rgb(30, 30, 30);
+  border-top: 2px solid #ffc400;
   /* border: 2px solid blue; */
   margin: 0px;
   text-align: center;
@@ -65,12 +65,12 @@ html {
 }
 .navText:hover 
 {
-  color: rgb(124, 124, 124);
+  color: #ffc400;
 }
 
 .footer
 {
-  border-top: 2px solid rgb(30, 30, 30);
+  border-top: 2px solid #ffc400;
   background-color: rgb(58, 58, 58);
   text-align: center;
   padding: 20px;
@@ -99,7 +99,7 @@ html {
 
 .formBox
 {
-  border: 2px solid rgb(30, 30, 30);
+  border: 2px solid #ffc400;
   width: 80%;
   /* display: inline-block; */
   margin: auto;
@@ -122,15 +122,26 @@ html {
 
 .addUserButton:hover 
 {
-  background-color: rgb(124, 124, 124);
+  background-color: #ffc400;
 }
 
 
 .dashboard
 {
-  /* margin: 10px; */
-  /* height: 100%; */
   text-align: center;
+}
+
+.services
+{
+  text-align: center;
+}
+
+.serviceList
+{
+  text-align: center;
+  display: inline-block;
+  width: 25%;
+  border: 2px solid #ffc400;
 }
 
 .mainbutton
@@ -147,5 +158,62 @@ html {
 
 .mainbutton:hover
 {
-  background-color: rgb(124, 124, 124);
+  background-color: #ffc400;
+}
+
+.outside
+{
+  display: flex;
+  justify-content: space-around;
+}
+
+.inside
+{
+  text-align: center;
+}
+
+.bookings
+{
+  text-align: center;
+  /* display: flex;
+  justify-content: space-around;
+  width: 80%; */
+  border: 2px solid #ffc400;  
+}
+
+.booking
+{
+  text-align: left;
+  min-width: 22%;
+  display: inline-block;
+  /* display: inline-block; */
+  border: 2px solid #d6a400;
+  margin: 5px;
+  padding: 5px;
+}
+
+.logo
+{
+  text-align: center;
+}
+
+.serviceText
+{
+  text-decoration: none;
+  color: black;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.serviceText:hover
+{
+  color: #ffc400;
+}
+
+.signupBox
+{
+  text-align: center;
+  display: inline-block;
+  width: 10%;
+  border: 2px solid #ffc400;
 }

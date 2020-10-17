@@ -14,7 +14,7 @@ import javax.validation.Valid;
 import java.util.List;
 
 @RestController
-@CrossOrigin
+@CrossOrigin("*")
 @RequestMapping("/api/businessService")
 public class BusinessServiceController {
 
@@ -58,12 +58,11 @@ public class BusinessServiceController {
         return businessServiceService.getAllBusinessServices();
     }
 
-//    @GetMapping("/allBusinessServices")
-//    public Iterable<BusinessService> findAllBusinessServices()
-//    {
-//        return businessServiceService.findAllBusinessServices();
-//    }
-//
+    @GetMapping("/category/{category}")
+    public List<BusinessService> getBusinessServicesByCategory(@PathVariable String category) {
+        return businessServiceService.getBusinessServicesByCategory(category);
+    }
+
 
     @DeleteMapping("/id/{id}")
     public void deleteServiceByIdentifier(@PathVariable String id)
@@ -71,11 +70,4 @@ public class BusinessServiceController {
         businessServiceService.deleteServiceByIdentifier(id);
     }
 
-//    @GetMapping("/{service}")
-//    public ResponseEntity<?> saveOrUpdateService(BusinessService service)
-//    {
-//        BusinessService businessService = businessServiceService.saveOrUpdateService(service);
-//
-//        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
-//    }
 }

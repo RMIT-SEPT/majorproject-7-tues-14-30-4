@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import axios from "axios";
 import AddUser from './User/AddUser'
 import UserProfile from '../Tools/UserProfile';
-import {getUserName} from '../Tools/tools_helper'
+import {getUser} from '../Tools/tools_helper'
+import AdminPage from './Admin/AdminPage'
+import CustomerDashboard from './Customer/CustomerDashboard';
+import WorkerDashboard from './Worker/WorkerDashboard';
+import { Redirect } from 'react-router';
+import {Link} from "react-router-dom";
 
-// import {createUser, UserProfiles} from '../actions/personActions'
- 
-// import CreatePersonButton from './Persons/CreatePersonButton';
 
 class Dashboard extends Component {
 
@@ -18,38 +20,91 @@ class Dashboard extends Component {
     }
 
     componentDidMount() {
-        const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser").toUpperCase() + "/"
+        if (localStorage.getItem("LoggedUser")){
+            const string =  "http://localhost:8080/api/user/id/" + localStorage.getItem("LoggedUser") + "/"
 
-        console.log(string)
+            console.log(string)
 
-        axios.get(string).then(res => {
-            const loggedUser = res.data;
-            this.setState({ loggedUser });
+            axios.get(string).then(res => {
+                const loggedUser = res.data;
+                this.setState({ loggedUser });
 
-            console.log(loggedUser)
-        })
+                console.log(loggedUser)
+            })
 
-        console.log(this.state.loggedUser)
+            console.log(this.state.loggedUser)
+        }   
     }
 
+    whatType()
+    {
+        if (this.state.loggedUser["userType"] === "Admin")
+        {
+            return (
+                <div>
+                    <AdminPage />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                     {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
+        }
+        else if (this.state.loggedUser["userType"] === "Worker")
+        {
+            return (
+                <div>
+                    <WorkerDashboard />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                     {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
+        }
+        else if (this.state.loggedUser["userType"] === "Customer")
+        {
+            return (
+                <div>
+                    <CustomerDashboard />
+                    <Link 
+                        to="/"
+                        onClick={this.logout}
+                        className="logoutButton">
+                            Logout
+                    </Link>
+                    {/*<p className="addUserButton" onClick={this.logout}>Click here to logout</p>*/}
+                </div>
+            )
+        }
+        else 
+        {
+            return <p>Please Sign in to view this page</p>
+        }
+    }
+
+    logout()
+     {
+
+          if(localStorage.getItem("LoggedUser"))
+         {
+         localStorage.removeItem("LoggedUser");
+         return <Redirect to="/" push/>
+         }
+     }
 
     render() {
-        const { isLoading, users, error } = this.state;
         return (
             <div className="dashboard">
-                <p>Welcome to the User Dashboard {this.state.loggedUser["name"]}</p>
 
-                {/*this.state.loggedUser.map(user => <p>{user.name}</p>)*/} 
-
-                <br/>
-
-
-                <p>Eventually only admins will be able to see the following</p>
-                <p className="addUserButton" onClick={hide}>Click here to add a user</p>
-
-                <div className="formBox" style={ { display: "none" }}>
-                    <AddUser/>
-                </div>
+                { this.whatType() }
+                
             </div>
         )
     }
@@ -57,20 +112,4 @@ class Dashboard extends Component {
 
 export default Dashboard;
 
-// Hidden Form Script
-function hide() {
-    // var x = document.getElementsByClassName("formBox");
-    var x = document.getElementsByClassName("formBox")[0];
 
-    if (x.style.display === "none") 
-    {
-        x.style.display = "block";
-        console.log("Form shown")
-    } 
-    else 
-    {
-        x.style.display = "none";
-        console.log("Form hidden")
-
-    }
-}
