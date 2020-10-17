@@ -62,12 +62,7 @@ public class BusinessServiceController {
     public List<BusinessService> getBusinessServicesByCategory(@PathVariable String category) {
         return businessServiceService.getBusinessServicesByCategory(category);
     }
-//    @GetMapping("/allBusinessServices")
-//    public Iterable<BusinessService> findAllBusinessServices()
-//    {
-//        return businessServiceService.findAllBusinessServices();
-//    }
-//
+
 
     @DeleteMapping("/id/{id}")
     public void deleteServiceByIdentifier(@PathVariable String id)
@@ -75,11 +70,4 @@ public class BusinessServiceController {
         businessServiceService.deleteServiceByIdentifier(id);
     }
 
-//    @GetMapping("/{service}")
-//    public ResponseEntity<?> saveOrUpdateService(BusinessService service)
-//    {
-//        BusinessService businessService = businessServiceService.saveOrUpdateService(service);
-//
-//        return new ResponseEntity<BusinessService>(businessService, HttpStatus.OK);
-//    }
 }

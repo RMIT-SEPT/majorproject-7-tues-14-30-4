@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 import axios from "axios";
- 
-// import CreatePersonButton from './Persons/CreatePersonButton';
 
 class Services extends Component {
 
@@ -13,6 +11,7 @@ class Services extends Component {
 
     }
 
+    // api call to get all services in database
     componentDidMount() {
         axios.get("http://localhost:8080/api/businessService/all/").then(res => {
             const services = res.data;
@@ -21,6 +20,7 @@ class Services extends Component {
         })
     }
     
+    // list all services currently in system
     render() {
         const empty = (this.state.services.length === 0)
         return (

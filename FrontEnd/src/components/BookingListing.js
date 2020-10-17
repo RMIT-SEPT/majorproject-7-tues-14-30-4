@@ -11,8 +11,7 @@ class BookingListing extends Component {
             bookingsMade: [],
             serviceBooked: {},
             servicesByCategory: []
-        };
-        
+        };    
     }
 
     componentDidMount() {
@@ -35,8 +34,7 @@ class BookingListing extends Component {
                     for (serviceInList of servicesByCategory) {
                         
                         if (serviceInList["name"] != localStorage.getItem("ServiceBooked")) {
-                            servicesWithoutOne.push(serviceInList);
-                          
+                            servicesWithoutOne.push(serviceInList);  
                         }
                     }
                     this.setState({servicesByCategory: servicesWithoutOne});
@@ -48,15 +46,8 @@ class BookingListing extends Component {
                         this.setState({ bookingsMade });
                     })
                 })
-
-                
-
-            }) 
-            
-            
+            })      
         }
-        
-        
     }
     
     render() {
@@ -84,7 +75,6 @@ class BookingListing extends Component {
                 <br></br>
             </div> 
         );
-
     }
 }
 

@@ -66,12 +66,6 @@ public class WorkerController {
         return new ResponseEntity<Worker>(worker, HttpStatus.OK);
     }
 
-    // I think we don't need this as it is similar to getAllWorkers()?
-//    @GetMapping("/allWorkers")
-//    public Iterable<Worker> findAllWorkers()
-//    {
-//        return workerService.findAllWorkers();
-//    }
 
     @DeleteMapping("/id/{id}")
     public void deleteWorkerByIdentifier(@PathVariable String id)
@@ -79,10 +73,4 @@ public class WorkerController {
         workerService.deleteWorkerByIdentifier(id);
     }
 
-//    @GetMapping("/{worker}")
-//    public  ResponseEntity<?> saveOrUpdateWorker(Worker worker)
-//    {
-//        Worker worker1 = workerService.saveOrUpdateWorker(worker);
-//        return new ResponseEntity<Worker>(worker1, HttpStatus.OK);
-//    }
 }

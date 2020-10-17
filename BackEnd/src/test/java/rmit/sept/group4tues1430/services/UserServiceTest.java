@@ -18,7 +18,7 @@ import rmit.sept.group4tues1430.repositories.UserRepository;
 public class UserServiceTest {
 
 
-    // Add Business logic tests here
+    // Business logic tests
     @Test
     public void saveOrUpdateUser_ThrowsIllegalArgException_IfUserNameIsEmpty() {
         UserService userService = new UserService();
@@ -39,16 +39,6 @@ public class UserServiceTest {
         assertThrows(IllegalArgumentException.class, () ->
                 userService.saveOrUpdateUser(user1));
     }
-
-    // Null pointer exception...?
-//    @Test
-//    public void deleteUserByIdentifier_ThrowsInvalidUserException_IfUserNotPresentInSystem() {
-//        UserService userService = new UserService();
-//
-//        assertThrows(InvalidUserException.class, () ->
-//                userService.deleteUserByIdentifier("abc123"));
-//    }
-    
 
 
 }
