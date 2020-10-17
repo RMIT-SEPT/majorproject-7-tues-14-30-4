@@ -57,7 +57,7 @@ class Booking extends React.Component {
                     <label>
                     Please enter your customer user identifier  
                     <input type="text" className="form-control form-control-lg " 
-                    placeholder="User Name"
+                    placeholder="Username"
                     name="customerUserIdentifier"
                     value={this.state.customerUserIdentifier}
                     onChange={this.onChange} />

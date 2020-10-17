@@ -42,17 +42,19 @@ class BookingListing extends Component {
                     this.setState({servicesByCategory: servicesWithoutOne});
                 })
 
+                const string = "http://localhost:8080/api/booking/unavailableBookings/customerIdentifier/" + this.props.match.params['id']
+
+                axios.get(string).then(res => {
+                    const bookingsMade = res.data;
+                    this.setState({ bookingsMade });
+                })
+
             }) 
             
             
         }
         
-        const string = "http://localhost:8080/api/booking/unavailableBookings/customerIdentifier/" + this.props.match.params['id']
-
-        axios.get(string).then(res => {
-            const bookingsMade = res.data;
-            this.setState({ bookingsMade });
-        })
+        
     }
     
     render() {
